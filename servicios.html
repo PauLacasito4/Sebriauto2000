@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Sebriauto 2000</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .page-header {
+            padding: 120px 20px 60px;
+            background-color: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .services-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            padding: 100px 0;
+        }
+
+        .service-detail-card {
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .service-detail-card:hover {
+            border-color: var(--primary-color);
+            background-color: #1c1c1c;
+        }
+
+        .service-detail-card i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .service-detail-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .service-detail-card p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .service-detail-card ul {
+            margin-bottom: 30px;
+        }
+
+        .service-detail-card ul li {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-detail-card ul li i {
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 0;
+        }
+
+        .cta-section {
+            background-color: var(--bg-secondary);
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            margin-bottom: 100px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>SEBRI</span><span>AUTO</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="quienes-somos.html">Quiénes somos</a>
+                <a href="servicios.html" class="active">Servicios</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="text-accent">Especialistas en tu coche</h1>
+            <p>Servicios mecánicos profesionales con tecnología de vanguardia</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="services-detail-grid">
+            <div class="service-detail-card">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <h3>Mecánica General</h3>
+                <p>Desde reparaciones complejas de motor hasta el mantenimiento más básico. Cuidamos cada detalle para garantizar tu seguridad.</p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Reparación de motores</li>
+                    <li><i class="fa-solid fa-check"></i> Sistemas de embrague</li>
+                    <li><i class="fa-solid fa-check"></i> Amortiguadores y suspensión</li>
+                    <li><i class="fa-solid fa-check"></i> Correas de distribución</li>
+                </ul>
+            </div>
+
+            <div class="service-detail-card">
+                <i class="fa-solid fa-computer"></i>
+                <h3>Diagnosis de Sistemas</h3>
+                <p>Equipamiento de última generación para leer los códigos de error de cualquier centralita multimarca y solucionar averías difíciles.</p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Borrado de errores</li>
+                    <li><i class="fa-solid fa-check"></i> Calibración de sensores</li>
+                    <li><i class="fa-solid fa-check"></i> Actualización de software</li>
+                    <li><i class="fa-solid fa-check"></i> Chequeo de emisiones</li>
+                </ul>
+            </div>
+
+            <div class="service-detail-card">
+                <i class="fa-solid fa-snowflake"></i>
+                <h3>Climatización</h3>
+                <p>Mantén la temperatura perfecta en tu habitáculo. Realizamos cargas de gas y detección de fugas en sistemas de aire acondicionado.</p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Carga de gas refrigerante</li>
+                    <li><i class="fa-solid fa-check"></i> Localización de fugas</li>
+                    <li><i class="fa-solid fa-check"></i> Cambio de filtro polen</li>
+                    <li><i class="fa-solid fa-check"></i> Higienización de conductos</li>
+                </ul>
+            </div>
+
+            <div class="service-detail-card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Electricidad</h3>
+                <p>Reparamos todo tipo de fallos eléctricos, desde una bombilla fundida hasta problemas complejos en el alternador o arranque.</p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Cambio de baterías</li>
+                    <li><i class="fa-solid fa-check"></i> Reparación de elevalunas</li>
+                    <li><i class="fa-solid fa-check"></i> Iluminación y faros</li>
+                    <li><i class="fa-solid fa-check"></i> Alternadores y arranques</li>
+                </ul>
+            </div>
+
+            <div class="service-detail-card">
+                <i class="fa-solid fa-list-check"></i>
+                <h3>Revisión Pre-ITV</h3>
+                <p>No te lleves sorpresas en la estación. Revisamos todos los puntos clave que exige la inspección técnica de vehículos.</p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Prueba de frenado</li>
+                    <li><i class="fa-solid fa-check"></i> Luces y señalización</li>
+                    <li><i class="fa-solid fa-check"></i> Holguras de dirección</li>
+                    <li><i class="fa-solid fa-check"></i> Test de gases/opacidad</li>
+                </ul>
+            </div>
+
+            <div class="service-detail-card">
+                <i class="fa-solid fa-car"></i>
+                <h3>Neumáticos</h3>
+                <p>El único contacto con el asfalto. Ofrecemos las mejores marcas y realizamos el equilibrado y alineación de dirección.</p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Sustitución de neumáticos</li>
+                    <li><i class="fa-solid fa-check"></i> Equilibrado de ruedas</li>
+                    <li><i class="fa-solid fa-check"></i> Reparación de pinchazos</li>
+                    <li><i class="fa-solid fa-check"></i> Revisión de presiones</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="cta-section">
+            <h2>¿Tu coche necesita pasar por boxes?</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 30px;">Pide cita ahora y deja tu vehículo en manos de profesionales.</p>
+            <a href="contacto.html" class="btn btn-primary">Pedir cita previa</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                    <span>SEBRI</span><span>AUTO</span>
+                </a>
+                <p>Tu taller de confianza en Riba-roja de Túria. Mecánica multimarca y venta de vehículos de ocasión seleccionados.</p>
+            </div>
+            <div class="footer-info">
+                <h4>Enlaces</h4>
+                <a href="index.html">Inicio</a>
+                <a href="quienes-somos.html">Quiénes somos</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="footer-info">
+                <h4>Contacto</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Calle Ejemplo, 12, Riba-roja de Túria</p>
+                <p><i class="fa-solid fa-phone"></i> 96X XXX XXX</p>
+                <p><i class="fa-brands fa-whatsapp"></i> 34XXXXXXXXX</p>
+                <p><i class="fa-solid fa-envelope"></i> info@sebriauto.es</p>
+            </div>
+            <div class="footer-info">
+                <h4>Horario</h4>
+                <p>Lunes - Viernes: 08:30 - 13:30 | 15:30 - 19:30</p>
+                <p>Sábado: 09:00 - 13:00</p>
+                <p>Domingo: Cerrado</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sebriauto 2000. Todos los derechos reservados.</p>
+            <a href="aviso-legal.html">Aviso Legal y Privacidad</a>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/34XXXXXXXXX" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+</body>
+</html>

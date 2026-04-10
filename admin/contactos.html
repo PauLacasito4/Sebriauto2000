@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes Recibidos | Sebriauto Admin</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .msg-unread { font-weight: 700; background-color: rgba(27, 79, 138, 0.05); }
+        .message-modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+        .modal-content {
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            max-width: 600px;
+            width: 100%;
+            border: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <span class="text-primary">SEBRI</span><span class="text-accent">AUTO</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i> <span>Dashboard</span>
+                </a>
+                <a href="vehiculos.html" class="nav-item">
+                    <i class="fa-solid fa-car"></i> <span>Vehículos</span>
+                </a>
+                <a href="contactos.html" class="nav-item active">
+                    <i class="fa-solid fa-envelope"></i> <span>Mensajes</span>
+                </a>
+            </nav>
+            <button id="logout-btn" class="nav-item" style="margin-top: auto; background: transparent; cursor: pointer; border: none; width: 100%;">
+                <i class="fa-solid fa-right-from-bracket"></i> <span>Cerrar Sesión</span>
+            </button>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <div>
+                    <h1>Mensajes y Consultas</h1>
+                    <p style="color: var(--text-secondary);">Recibidos desde el formulario de contacto.</p>
+                </div>
+                <div>
+                    <select id="filter-read" style="padding: 10px;">
+                        <option value="all">Todos</option>
+                        <option value="unread">Sin leer</option>
+                    </select>
+                </div>
+            </header>
+
+            <div class="table-container">
+                <table id="messages-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Nombre</th>
+                            <th>Teléfono / Email</th>
+                            <th>Mensaje (Resumen)</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messages-body">
+                        <!-- JS -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para leer mensaje completo -->
+    <div id="msg-modal" class="message-modal" onclick="window.closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 25px;">
+                <h3 id="modal-name">Nombre</h3>
+                <span id="modal-date" style="color: var(--text-secondary); font-size: 0.9rem;">Fecha</span>
+            </div>
+            <div style="margin-bottom: 20px; font-size: 0.95rem;">
+                <p><strong>Email:</strong> <span id="modal-email"></span></p>
+                <p><strong>Teléfono:</strong> <span id="modal-phone"></span></p>
+            </div>
+            <div style="padding: 20px; background-color: var(--bg-secondary); border-radius: var(--border-radius); line-height: 1.6;">
+                <p id="modal-text"></p>
+            </div>
+            <div style="margin-top: 30px; text-align: right;">
+                <button class="btn btn-outline" onclick="window.closeModal()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/admin/contactos.js"></script>
+</body>
+</html>

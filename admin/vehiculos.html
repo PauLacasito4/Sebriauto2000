@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Vehículos | Sebriauto Admin</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar" id="sidebar-container">
+            <!-- Cargado vía JS o estático (copiar de dashboard.html) -->
+            <div class="sidebar-logo">
+                <span class="text-primary">SEBRI</span><span class="text-accent">AUTO</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i> <span>Dashboard</span>
+                </a>
+                <a href="vehiculos.html" class="nav-item active">
+                    <i class="fa-solid fa-car"></i> <span>Vehículos</span>
+                </a>
+                <a href="contactos.html" class="nav-item">
+                    <i class="fa-solid fa-envelope"></i> <span>Mensajes</span>
+                </a>
+            </nav>
+            <button id="logout-btn" class="nav-item" style="margin-top: auto; background: transparent; cursor: pointer; border: none; width: 100%;">
+                <i class="fa-solid fa-right-from-bracket"></i> <span>Cerrar Sesión</span>
+            </button>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <div>
+                    <h1>Vehículos</h1>
+                    <p style="color: var(--text-secondary);">Administra el inventario de coches de ocasión.</p>
+                </div>
+                <a href="vehiculo-form.html" class="btn btn-primary">
+                    <i class="fa-solid fa-plus" style="margin-right: 10px;"></i> Añadir Vehículo
+                </a>
+            </header>
+
+            <div class="table-container">
+                <table id="vehicles-table">
+                    <thead>
+                        <tr>
+                            <th>Foto</th>
+                            <th>Vehículo</th>
+                            <th>Precio</th>
+                            <th>Estado</th>
+                            <th>Visibilidad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vehicles-body">
+                        <!-- JS -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../js/admin/vehiculos.js"></script>
+</body>
+</html>

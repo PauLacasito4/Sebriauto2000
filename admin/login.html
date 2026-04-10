@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Sebriauto 2000</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="login-page">
+    <div class="login-card">
+        <a href="../index.html" class="logo" style="justify-content: center; margin-bottom: 30px;">
+            <span>SEBRI</span><span>AUTO</span>
+        </a>
+        <h2 style="text-align: center; margin-bottom: 30px;">Panel de Control</h2>
+        
+        <div id="login-error" class="status-msg error" style="margin-bottom: 20px; font-size: 0.9rem; padding: 10px; display: none;"></div>
+
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="admin@sebriauto.es">
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; margin-top: 20px;">Acceder</button>
+        </form>
+    </div>
+
+    <script type="module">
+        import { supabase } from '../js/supabase.js';
+
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+
+        // Check if already logged in
+        const checkSession = async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session) window.location.href = 'dashboard.html';
+        };
+        checkSession();
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const submitBtn = loginForm.querySelector('button');
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Verificando...';
+            loginError.style.display = 'none';
+
+            try {
+                const { error } = await supabase.auth.signInWithPassword({ email, password });
+                if (error) throw error;
+                window.location.href = 'dashboard.html';
+            } catch (err) {
+                console.error(err);
+                loginError.textContent = 'Credenciales inválidas. Inténtalo de nuevo.';
+                loginError.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Acceder';
+            }
+        });
+    </script>
+</body>
+</html>

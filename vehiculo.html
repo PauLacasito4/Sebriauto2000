@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Vehículo | Sebriauto 2000</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .vehicle-detail-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            padding: 120px 0 100px;
+        }
+
+        /* Galería */
+        .gallery-main {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-color: #222;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .gallery-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .gallery-thumbs {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .thumb {
+            aspect-ratio: 4/3;
+            background-color: #222;
+            border-radius: 4px;
+            cursor: pointer;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .thumb.active {
+            border-color: var(--accent-color);
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Info */
+        .sticky-info {
+            position: sticky;
+            top: 100px;
+        }
+
+        .vehicle-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .vehicle-header .price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background-color: var(--bg-secondary);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .spec-item .label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+
+        .spec-item .value {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .description {
+            margin-bottom: 40px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+
+        .contact-box {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        @media (max-width: 992px) {
+            .vehicle-detail-grid {
+                grid-template-columns: 1fr;
+            }
+            .sticky-info {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>SEBRI</span><span>AUTO</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="quienes-somos.html">Quiénes somos</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="vehicle-detail-grid" id="detail-container">
+            <!-- Cargando... -->
+            <p style="text-align: center; grid-column: 1/-1;">Cargando detalles del vehículo...</p>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Mismo footer -->
+        <div class="footer-container">
+            <div class="footer-info">
+                <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                    <span>SEBRI</span><span>AUTO</span>
+                </a>
+                <p>Tu taller de confianza en Riba-roja de Túria. Mecánica multimarca y venta de vehículos de ocasión seleccionados.</p>
+            </div>
+            <div class="footer-info">
+                <h4>Enlaces</h4>
+                <a href="index.html">Inicio</a>
+                <a href="quienes-somos.html">Quiénes somos</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="footer-info">
+                <h4>Contacto</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Calle Ejemplo, 12, Riba-roja de Túria</p>
+                <p><i class="fa-solid fa-phone"></i> 96X XXX XXX</p>
+                <p><i class="fa-brands fa-whatsapp"></i> 34XXXXXXXXX</p>
+                <p><i class="fa-solid fa-envelope"></i> info@sebriauto.es</p>
+            </div>
+            <div class="footer-info">
+                <h4>Horario</h4>
+                <p>Lunes - Viernes: 08:30 - 13:30 | 15:30 - 19:30</p>
+                <p>Sábado: 09:00 - 13:00</p>
+                <p>Domingo: Cerrado</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sebriauto 2000. Todos los derechos reservados.</p>
+            <a href="aviso-legal.html">Aviso Legal y Privacidad</a>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/34XXXXXXXXX" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script type="module" src="js/vehiculo.js"></script>
+</body>
+</html>

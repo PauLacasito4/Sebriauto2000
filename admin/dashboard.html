@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Sebriauto Admin</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <span class="text-primary">SEBRI</span><span class="text-accent">AUTO</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item active">
+                    <i class="fa-solid fa-chart-line"></i> <span>Dashboard</span>
+                </a>
+                <a href="vehiculos.html" class="nav-item">
+                    <i class="fa-solid fa-car"></i> <span>Vehículos</span>
+                </a>
+                <a href="contactos.html" class="nav-item">
+                    <i class="fa-solid fa-envelope"></i> <span>Mensajes</span>
+                </a>
+            </nav>
+            <button id="logout-btn" class="nav-item" style="margin-top: auto; background: transparent; cursor: pointer; border: none; width: 100%;">
+                <i class="fa-solid fa-right-from-bracket"></i> <span>Cerrar Sesión</span>
+            </button>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Resumen General</h1>
+                <div id="user-info" style="color: var(--text-secondary); font-size: 0.9rem;"></div>
+            </header>
+
+            <div class="stats-grid" id="stats-container">
+                <div class="stat-card">
+                    <span class="label">Vehículos Activos</span>
+                    <span class="value" id="count-active">...</span>
+                </div>
+                <div class="stat-card">
+                    <span class="label">Total Vendidos</span>
+                    <span class="value" id="count-sold">...</span>
+                </div>
+                <div class="stat-card">
+                    <span class="label">Mensajes Pendientes</span>
+                    <span class="value" id="count-messages">...</span>
+                </div>
+            </div>
+
+            <div class="admin-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div class="table-container">
+                    <div style="padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                        <h3 style="margin: 0;">Últimos Vehículos</h3>
+                        <a href="vehiculos.html" class="text-accent" style="font-size: 0.9rem;">Ver todo</a>
+                    </div>
+                    <table id="latest-vehicles-table">
+                        <thead>
+                            <tr>
+                                <th>Marca/Modelo</th>
+                                <th>Precio</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Carga vía JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-container">
+                    <div style="padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                        <h3 style="margin: 0;">Mensajes Recientes</h3>
+                        <a href="contactos.html" class="text-accent" style="font-size: 0.9rem;">Ver todo</a>
+                    </div>
+                    <table id="latest-messages-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Fecha</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Carga vía JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { supabase } from '../js/supabase.js';
+        import { checkAuth, logout } from '../js/admin/auth.js';
+
+        async function init() {
+            const session = await checkAuth();
+            if (!session) return;
+
+            document.getElementById('user-info').textContent = session.user.email;
+            document.getElementById('logout-btn').addEventListener('click', logout);
+
+            loadStats();
+            loadLatestData();
+        }
+
+        async function loadStats() {
+            const { count: activeCount } = await supabase
+                .from('vehiculos')
+                .select('*', { count: 'exact', head: true })
+                .eq('vendido', false);
+
+            const { count: soldCount } = await supabase
+                .from('vehiculos')
+                .select('*', { count: 'exact', head: true })
+                .eq('vendido', true);
+
+            const { count: msgCount } = await supabase
+                .from('contactos')
+                .select('*', { count: 'exact', head: true })
+                .eq('leido', false);
+
+            document.getElementById('count-active').textContent = activeCount || 0;
+            document.getElementById('count-sold').textContent = soldCount || 0;
+            document.getElementById('count-messages').textContent = msgCount || 0;
+        }
+
+        async function loadLatestData() {
+            // Últimos 5 vehículos
+            const { data: vehicles } = await supabase
+                .from('vehiculos')
+                .select('id, marca, modelo, precio, vendido')
+                .order('creado_en', { ascending: false })
+                .limit(5);
+
+            const vBody = document.querySelector('#latest-vehicles-table tbody');
+            vBody.innerHTML = vehicles?.map(v => `
+                <tr>
+                    <td>${v.marca} ${v.modelo}</td>
+                    <td>${v.precio.toLocaleString()} €</td>
+                    <td><span class="badge ${v.vendido ? 'badge-secondary' : 'badge-success'}">${v.vendido ? 'Vendido' : 'Stock'}</span></td>
+                </tr>
+            `).join('') || '<tr><td colspan="3">No hay datos</td></tr>';
+
+            // Últimos 5 mensajes
+            const { data: messages } = await supabase
+                .from('contactos')
+                .select('id, nombre, creado_en, leido')
+                .order('creado_en', { ascending: false })
+                .limit(5);
+
+            const mBody = document.querySelector('#latest-messages-table tbody');
+            mBody.innerHTML = messages?.map(m => `
+                <tr>
+                    <td>${m.nombre}</td>
+                    <td style="font-size: 0.8rem; color: var(--text-secondary)">${new Date(m.creado_en).toLocaleDateString()}</td>
+                    <td><a href="contactos.html" class="action-btn"><i class="fa-solid fa-eye"></i></a></td>
+                </tr>
+            `).join('') || '<tr><td colspan="3">No hay datos</td></tr>';
+        }
+
+        init();
+    </script>
+</body>
+</html>

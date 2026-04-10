@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes somos | Sebriauto 2000</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .page-header {
+            padding: 120px 20px 60px;
+            background-color: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 100px 0;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-img img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .value-card {
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>SEBRI</span><span>AUTO</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="quienes-somos.html" class="active">Quiénes somos</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="text-accent">Nuestra Historia</h1>
+            <p>Conoce al equipo detrás de Sebriauto 2000</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Más de 20 años de experiencia</h2>
+                    <p>En Sebriauto 2000, nacimos con una misión clara: ofrecer a los vecinos de Riba-roja de Túria un servicio mecánico honesto, profesional y cercano. Lo que empezó como un pequeño taller local se ha convertido en un referente de la zona, tanto en mantenimiento como en la venta de vehículos de ocasión seleccionados.</p>
+                    <p>Nuestra filosofía se basa en la transparencia. Creemos que la confianza es el motor de nuestro negocio, y por eso cada cliente recibe un trato personalizado y una explicación detallada de cada trabajo realizado en su vehículo.</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1530046339160-ce3e5b0c7a2f?auto=format&fit=crop&q=80&w=800" alt="Taller Mecánico">
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h2>Nuestros Valores</h2>
+                <p>Los pilares que sostienen nuestro taller todos los días</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fa-solid fa-shield-check"></i>
+                    <h3>Honestidad</h3>
+                    <p>Presupuestos claros y reparaciones necesarias, sin letra pequeña.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <h3>Profesionalidad</h3>
+                    <p>Formación continua para estar al día con las últimas tecnologías del automóvil.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fa-solid fa-heart"></i>
+                    <h3>Cercanía</h3>
+                    <p>Somos parte de Riba-roja y tratamos cada coche como si fuera el nuestro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Mismo footer que index -->
+        <div class="footer-container">
+            <div class="footer-info">
+                <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                    <span>SEBRI</span><span>AUTO</span>
+                </a>
+                <p>Tu taller de confianza en Riba-roja de Túria. Mecánica multimarca y venta de vehículos de ocasión seleccionados.</p>
+            </div>
+            <div class="footer-info">
+                <h4>Enlaces</h4>
+                <a href="index.html">Inicio</a>
+                <a href="quienes-somos.html">Quiénes somos</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="footer-info">
+                <h4>Contacto</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Calle Ejemplo, 12, Riba-roja de Túria</p>
+                <p><i class="fa-solid fa-phone"></i> 96X XXX XXX</p>
+                <p><i class="fa-brands fa-whatsapp"></i> 34XXXXXXXXX</p>
+                <p><i class="fa-solid fa-envelope"></i> info@sebriauto.es</p>
+            </div>
+            <div class="footer-info">
+                <h4>Horario</h4>
+                <p>Lunes - Viernes: 08:30 - 13:30 | 15:30 - 19:30</p>
+                <p>Sábado: 09:00 - 13:00</p>
+                <p>Domingo: Cerrado</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sebriauto 2000. Todos los derechos reservados.</p>
+            <a href="aviso-legal.html">Aviso Legal y Privacidad</a>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/34XXXXXXXXX" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+</body>
+</html>
