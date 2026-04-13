@@ -38,6 +38,9 @@
                 <a href="contactos.html" class="nav-item">
                     <i class="fa-solid fa-envelope"></i> <span>Mensajes</span>
                 </a>
+                <a href="configuracion.html" class="nav-item">
+                    <i class="fa-solid fa-gear"></i> <span>Configuración</span>
+                </a>
             </nav>
             <button id="logout-btn" class="nav-item" style="margin-top: auto; background: transparent; cursor: pointer; border: none; width: 100%;">
                 <i class="fa-solid fa-right-from-bracket"></i> <span>Cerrar Sesión</span>
@@ -57,7 +60,61 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div class="form-group">
                         <label for="marca">Marca *</label>
-                        <input type="text" id="marca" required placeholder="Ej: Audi">
+                        <select id="marca" required>
+                            <option value="" disabled selected>Selecciona una marca...</option>
+                            <option value="Abarth">Abarth</option>
+                            <option value="Alfa Romeo">Alfa Romeo</option>
+                            <option value="Aston Martin">Aston Martin</option>
+                            <option value="Audi">Audi</option>
+                            <option value="Bentley">Bentley</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Bugatti">Bugatti</option>
+                            <option value="Cadillac">Cadillac</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Chrysler">Chrysler</option>
+                            <option value="Citroën">Citroën</option>
+                            <option value="Cupra">Cupra</option>
+                            <option value="Dacia">Dacia</option>
+                            <option value="Dodge">Dodge</option>
+                            <option value="DS">DS</option>
+                            <option value="Ferrari">Ferrari</option>
+                            <option value="Fiat">Fiat</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Infiniti">Infiniti</option>
+                            <option value="Jaguar">Jaguar</option>
+                            <option value="Jeep">Jeep</option>
+                            <option value="Kia">Kia</option>
+                            <option value="Lamborghini">Lamborghini</option>
+                            <option value="Lancia">Lancia</option>
+                            <option value="Land Rover">Land Rover</option>
+                            <option value="Lexus">Lexus</option>
+                            <option value="Lynk & Co">Lynk & Co</option>
+                            <option value="Maserati">Maserati</option>
+                            <option value="Mazda">Mazda</option>
+                            <option value="McLaren">McLaren</option>
+                            <option value="Mercedes-Benz">Mercedes-Benz</option>
+                            <option value="Mini">Mini</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Opel">Opel</option>
+                            <option value="Peugeot">Peugeot</option>
+                            <option value="Porsche">Porsche</option>
+                            <option value="Renault">Renault</option>
+                            <option value="Rolls-Royce">Rolls-Royce</option>
+                            <option value="SEAT">SEAT</option>
+                            <option value="Skoda">Skoda</option>
+                            <option value="Smart">Smart</option>
+                            <option value="SsangYong">SsangYong</option>
+                            <option value="Subaru">Subaru</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Tesla">Tesla</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="Volvo">Volvo</option>
+                            <option value="Otra">Otra</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="modelo">Modelo *</label>

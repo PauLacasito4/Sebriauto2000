@@ -1,0 +1,82 @@
+/* servicios.css — Estilos de la página Servicios */
+
+.page-header {
+    padding: 120px 20px 60px;
+    background-color: var(--bg-secondary);
+    text-align: center;
+}
+
+.services-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    padding: 100px 0;
+}
+
+.service-detail-card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 50px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.service-detail-card:hover {
+    border-color: var(--primary-color);
+    background-color: #1c1c1c;
+}
+
+.service-detail-card i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    display: block;
+}
+
+.service-detail-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.service-detail-card p {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.service-detail-card ul {
+    margin-bottom: 30px;
+}
+
+.service-detail-card ul li {
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-detail-card ul li i {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-bottom: 0;
+}
+
+.cta-section {
+    background-color: var(--bg-secondary);
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: var(--border-radius);
+    margin-bottom: 100px;
+}
+
+.cta-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
