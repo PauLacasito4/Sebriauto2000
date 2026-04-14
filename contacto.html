@@ -15,34 +15,34 @@
 
     <header class="page-header">
         <div class="container">
-            <h1>Contacta con nosotros</h1>
-            <p>Estamos aquí para ayudarte. Ven a visitarnos o escríbenos.</p>
+            <h1 data-i18n="cont-title">Contacta con nosotros</h1>
+            <p data-i18n="cont-subtitle">Estamos aquí para ayudarte. Ven a visitarnos o escríbenos.</p>
         </div>
     </header>
 
     <main class="container">
         <div class="contact-grid">
             <div class="contact-info">
-                <h2>Información de contacto</h2>
+                <h2 data-i18n="cont-info-h2">Información de contacto</h2>
                 <ul class="info-list">
                     <li>
                         <i class="fa-solid fa-location-dot"></i>
                         <div>
-                            <strong>Dirección</strong><br>
+                            <strong data-i18n="cont-dir">Dirección</strong><br>
                             Crta Villamarchante 119, 46190 Riba-Roja del Turia, Valencia
                         </div>
                     </li>
                     <li>
                         <i class="fa-solid fa-phone"></i>
                         <div>
-                            <strong>Teléfono</strong><br>
+                            <strong data-i18n="cont-tel">Teléfono</strong><br>
                             <a href="tel:+34962779772">+34 962 779 772</a>
                         </div>
                     </li>
                     <li>
                         <i class="fa-brands fa-whatsapp"></i>
                         <div>
-                            <strong>Móvil / WhatsApp</strong><br>
+                            <strong data-i18n="cont-mov">Móvil / WhatsApp</strong><br>
                             <a href="https://wa.me/34695599086" target="_blank">695 599 086</a>
                         </div>
                     </li>
@@ -56,9 +56,9 @@
                     <li>
                         <i class="fa-solid fa-clock"></i>
                         <div>
-                            <strong>Horario</strong><br>
-                            Lunes – Jueves: 08:00 – 15:30<br>
-                            Viernes: 08:00 – 14:00
+                            <strong data-i18n="cont-hor">Horario</strong><br>
+                            <span data-i18n="cont-hor-1">Lunes – Jueves: 08:00 – 15:30</span><br>
+                            <span data-i18n="cont-hor-2">Viernes: 08:00 – 14:00</span>
                         </div>
                     </li>
                 </ul>
@@ -73,38 +73,28 @@
                 </div>
             </div>
 
-            <div class="contact-form">
-                <h3>Envíanos un mensaje</h3>
-                <p>Resolveremos tus dudas lo antes posible.</p>
+            <div class="contact-methods">
+                <div class="whatsapp-card">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <h3 data-i18n="cont-wa-h3">Contacta por WhatsApp</h3>
+                    <p data-i18n="cont-wa-p">Para tu seguridad y rapidez, gestionamos todas las consultas directamente por WhatsApp. Así evitamos phishing y correos fraudulentos.</p>
+                    <a href="https://wa.me/34695599086" class="btn btn-whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span data-i18n="btn-wa">Escribir por WhatsApp</span>
+                    </a>
+                </div>
 
-                <div id="status-msg" class="status-msg"></div>
-
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nombre completo *</label>
-                        <input type="text" id="name" required placeholder="Escribe tu nombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="tu@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Teléfono</label>
-                        <input type="tel" id="phone" placeholder="600 000 000">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensaje *</label>
-                        <textarea id="message" rows="5" required placeholder="¿En qué podemos ayudarte?"></textarea>
-                    </div>
-                    <button type="submit" id="submit-btn" class="btn btn-accent btn-full">Enviar mensaje</button>
-                </form>
+                <div class="security-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h4 data-i18n="cont-sec-title">Zona Segura</h4>
+                    <p data-i18n="cont-sec-desc">Sebriauto 2000 nunca te pedirá contraseñas ni datos bancarios por email. Nuestra comunicación oficial siempre se realiza a través de nuestros teléfonos autorizados.</p>
+                </div>
             </div>
         </div>
     </main>
 
     <div id="footer-placeholder"></div>
 
-    <script src="js/components.js"></script>
-    <script type="module" src="js/contacto.js"></script>
+    <script type="module" src="js/components.js"></script>
 </body>
 </html>

@@ -42,10 +42,11 @@ async function loadVehicleData(id) {
         document.getElementById('precio').value = data.precio;
         document.getElementById('combustible').value = data.combustible;
         document.getElementById('cambio').value = data.cambio;
-        document.getElementById('potencia_cv').value = data.potencia_cv || '';
+        document.getElementById('etiqueta').value = data.etiqueta || '';
         document.getElementById('descripcion').value = data.descripcion || '';
         document.getElementById('visible').checked = data.visible;
         document.getElementById('destacado').checked = data.destacado;
+        document.getElementById('vendido').checked = data.vendido || false;
         
         uploadedPhotos = data.fotos || [];
         renderPreviews();
@@ -148,11 +149,12 @@ form.addEventListener('submit', async (e) => {
         precio: parseFloat(document.getElementById('precio').value),
         combustible: document.getElementById('combustible').value,
         cambio: document.getElementById('cambio').value,
-        potencia_cv: parseInt(document.getElementById('potencia_cv').value) || null,
+        etiqueta: document.getElementById('etiqueta').value,
         descripcion: document.getElementById('descripcion').value,
         fotos: uploadedPhotos,
         visible: document.getElementById('visible').checked,
         destacado: document.getElementById('destacado').checked,
+        vendido: document.getElementById('vendido').checked,
         updated_at: new Date()
     };
 

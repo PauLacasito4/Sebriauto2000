@@ -9,105 +9,108 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <span>SEBRI</span><span>AUTO</span>
-            </a>
-            <div class="nav-links">
-                <a href="index.html">Inicio</a>
-                <a href="quienes-somos.html">Quiénes somos</a>
-                <a href="servicios.html">Servicios</a>
-                <a href="catalogo.html" class="active">Catálogo</a>
-                <a href="contacto.html">Contacto</a>
-            </div>
-            <div class="nav-toggle">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
-    <header style="padding: 120px 20px 40px; background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-color);">
+    <header class="page-header">
         <div class="container">
-            <h1>Vehículos de Ocasión</h1>
-            <p style="color: var(--text-secondary);">Encuentra tu próximo coche totalmente garantizado y revisado.</p>
+            <h1 data-i18n="cat-title">Vehículos de Ocasión</h1>
+            <p data-i18n="cat-subtitle">Encuentra tu próximo coche totalmente garantizado y revisado.</p>
         </div>
     </header>
 
     <main class="section">
         <div class="container">
-            <!-- Filtros -->
-            <div class="filters-bar">
-                <div class="filter-group">
-                    <label for="filter-brand">Marca</label>
-                    <select id="filter-brand">
-                        <option value="">Todas las marcas</option>
-                    </select>
+            <!-- Filtros Avanzados Premium -->
+            <div class="filters-wrapper">
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <label for="search-input"><i class="fa-solid fa-search"></i> <span data-i18n="cat-filter-search">Buscador</span></label>
+                        <input type="text" id="search-input" placeholder="Modelo, marca...">
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-brand"><i class="fa-solid fa-tag"></i> <span data-i18n="cat-filter-marca">Marca</span></label>
+                        <select id="filter-brand">
+                            <option value="" data-i18n="cat-filter-todas">Todas</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-year"><i class="fa-solid fa-calendar-days"></i> <span data-i18n="cat-filter-year">Desde</span></label>
+                        <select id="filter-year">
+                            <option value="">Cualquiera</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-fuel"><i class="fa-solid fa-gas-pump"></i> <span data-i18n="cat-filter-fuel">Motor</span></label>
+                        <select id="filter-fuel">
+                            <option value="" data-i18n="cat-filter-cualquiera">Cualquiera</option>
+                            <option value="Gasolina">Gasolina</option>
+                            <option value="Diésel">Diésel</option>
+                            <option value="Híbrido">Híbrido</option>
+                            <option value="Eléctrico">Eléctrico</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-transmission"><i class="fa-solid fa-gears"></i> <span data-i18n="cat-filter-transmission">Cambio</span></label>
+                        <select id="filter-transmission">
+                            <option value="">Cualquiera</option>
+                            <option value="Manual">Manual</option>
+                            <option value="Automático">Automático</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-label"><i class="fa-solid fa-leaf"></i> <span data-i18n="cat-filter-label">Etiqueta</span></label>
+                        <select id="filter-label">
+                            <option value="">Cualquiera</option>
+                            <option value="0">0</option>
+                            <option value="Eco">Eco</option>
+                            <option value="C">C</option>
+                            <option value="B">B</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fa-solid fa-euro-sign"></i> <span data-i18n="cat-filter-precio-min">Min</span></label>
+                        <select id="filter-price-min">
+                            <option value="">0 €</option>
+                            <option value="1000">1.000 €</option>
+                            <option value="3000">3.000 €</option>
+                            <option value="5000">5.000 €</option>
+                            <option value="10000">10.000 €</option>
+                            <option value="15000">15.000 €</option>
+                            <option value="20000">20.000 €</option>
+                            <option value="30000">30.000 €</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fa-solid fa-euro-sign"></i> <span data-i18n="cat-filter-precio-max">Max</span></label>
+                        <select id="filter-price-max">
+                            <option value="">Cualquiera</option>
+                            <option value="5000">5.000 €</option>
+                            <option value="10000">10.000 €</option>
+                            <option value="15000">15.000 €</option>
+                            <option value="20000">20.000 €</option>
+                            <option value="30000">30.000 €</option>
+                            <option value="40000">40.000 €</option>
+                            <option value="50000">50.000 €</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <button id="reset-filters" class="btn btn-accent btn-full">
+                            <i class="fa-solid fa-rotate-left"></i> <span data-i18n="cat-btn-reset">Limpiar</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="filter-group">
-                    <label for="filter-fuel">Combustible</label>
-                    <select id="filter-fuel">
-                        <option value="">Cualquiera</option>
-                        <option value="Gasolina">Gasolina</option>
-                        <option value="Diésel">Diésel</option>
-                        <option value="Híbrido">Híbrido</option>
-                        <option value="Eléctrico">Eléctrico</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="filter-price">Precio Máximo: <span id="price-value">0</span> €</label>
-                    <input type="range" id="filter-price" min="0" max="100000" step="500" value="100000">
-                </div>
-                <button id="reset-filters" class="btn btn-outline">Limpiar</button>
             </div>
 
             <!-- Grid de Vehículos -->
             <div class="catalog-grid" id="catalog-container">
-                <!-- Skeletons se insertan aquí vía JS -->
+                <p class="loading-text" data-i18n="loading">Cargando vehículos...</p>
             </div>
         </div>
     </main>
 
-    <footer>
-        <!-- Mismo footer -->
-        <div class="footer-container">
-            <div class="footer-info">
-                <a href="index.html" class="logo" style="margin-bottom: 20px;">
-                    <span>SEBRI</span><span>AUTO</span>
-                </a>
-                <p>Tu taller de confianza en Riba-roja de Túria. Mecánica multimarca y venta de vehículos de ocasión seleccionados.</p>
-            </div>
-            <div class="footer-info">
-                <h4>Enlaces</h4>
-                <a href="index.html">Inicio</a>
-                <a href="quienes-somos.html">Quiénes somos</a>
-                <a href="servicios.html">Servicios</a>
-                <a href="catalogo.html">Catálogo</a>
-                <a href="contacto.html">Contacto</a>
-            </div>
-            <div class="footer-info">
-                <h4>Contacto</h4>
-                <p><i class="fa-solid fa-location-dot"></i> Calle Ejemplo, 12, Riba-roja de Túria</p>
-                <p><i class="fa-solid fa-phone"></i> 96X XXX XXX</p>
-                <p><i class="fa-brands fa-whatsapp"></i> 34XXXXXXXXX</p>
-                <p><i class="fa-solid fa-envelope"></i> info@sebriauto.es</p>
-            </div>
-            <div class="footer-info">
-                <h4>Horario</h4>
-                <p>Lunes - Viernes: 08:30 - 13:30 | 15:30 - 19:30</p>
-                <p>Sábado: 09:00 - 13:00</p>
-                <p>Domingo: Cerrado</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Sebriauto 2000. Todos los derechos reservados.</p>
-            <a href="aviso-legal.html">Aviso Legal y Privacidad</a>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
-    <a href="https://wa.me/34XXXXXXXXX" class="whatsapp-float" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <script type="module" src="js/components.js"></script>
 
     <script type="module" src="js/catalogo.js"></script>
 </body>

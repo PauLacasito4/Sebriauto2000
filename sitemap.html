@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Web | Sebriauto 2000</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .sitemap-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .sitemap-group h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        .sitemap-group ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sitemap-group li {
+            margin-bottom: 12px;
+        }
+        .sitemap-group a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sitemap-group a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 data-i18n="footer-sitemap">Mapa Web</h1>
+            <p>Estructura completa de nuestro sitio web para una fácil navegación.</p>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <div class="sitemap-list">
+                <div class="sitemap-group">
+                    <h3 data-i18n="footer-links">Enlaces Principales</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-house"></i> <span data-i18n="nav-inicio">Inicio</span></a></li>
+                        <li><a href="servicios.html"><i class="fa-solid fa-wrench"></i> <span data-i18n="nav-servicios">Servicios</span></a></li>
+                        <li><a href="catalogo.html"><i class="fa-solid fa-car"></i> <span data-i18n="nav-catalogo">Catálogo</span></a></li>
+                        <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> <span data-i18n="nav-contacto">Contacto</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="sitemap-group">
+                    <h3 data-i18n="title-servicios">Nuestros Servicios</h3>
+                    <ul>
+                        <li><a href="servicios.html#mecanica"><i class="fa-solid fa-check"></i> <span data-i18n="srv-mecanica">Mecánica General</span></a></li>
+                        <li><a href="servicios.html#diagnosis"><i class="fa-solid fa-check"></i> <span data-i18n="srv-diagnosis">Diagnosis Electrónica</span></a></li>
+                        <li><a href="servicios.html#itv"><i class="fa-solid fa-check"></i> <span data-i18n="srv-frenos">Pre-ITV</span></a></li>
+                        <li><a href="servicios.html#neumaticos"><i class="fa-solid fa-check"></i> <span data-i18n="srv-neumaticos">Neumáticos</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-group">
+                    <h3 data-i18n="footer-legal">Legal</h3>
+                    <ul>
+                        <li><a href="aviso-legal.html"><i class="fa-solid fa-scale-balanced"></i> <span data-i18n="footer-legal">Aviso Legal</span></a></li>
+                        <li><a href="aviso-legal.html#cookies"><i class="fa-solid fa-cookie-bite"></i> <span>Política de Cookies</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="js/components.js"></script>
+</body>
+</html>

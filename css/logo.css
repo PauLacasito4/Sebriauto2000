@@ -12,10 +12,16 @@
 
 /* Logo imagen (hero y footer) */
 .logo-img {
-    height: 44px;
+    height: 40px;
     width: auto;
     display: block;
     transition: var(--transition);
+}
+
+@media (max-width: 600px) {
+    .logo-img {
+        height: 32px;
+    }
 }
 
 .logo-img:hover {
@@ -24,14 +30,22 @@
 
 /* Logo grande en el hero */
 .hero-logo {
-    width: 120px;
+    width: 180px;
+    max-width: 80vw;
     height: auto;
-    margin: 12px auto 24px;
-    filter: drop-shadow(0 4px 20px rgba(0,0,0,0.6));
+    margin: 0 auto 30px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+}
+
+@media (max-width: 600px) {
+    .hero-logo {
+        width: 140px;
+        margin-bottom: 20px;
+    }
 }
 
 /* Footer logo */
-.footer-logo .logo-img {
-    height: 38px;
-    margin-bottom: 16px;
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 25px;
 }

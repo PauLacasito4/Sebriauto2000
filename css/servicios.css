@@ -80,3 +80,33 @@
     color: var(--text-secondary);
     margin-bottom: 30px;
 }
+
+@media (max-width: 900px) {
+    .services-detail-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+    .service-detail-card {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .services-detail-grid {
+        grid-template-columns: 1fr;
+        padding: 40px 0;
+    }
+    .service-detail-card {
+        padding: 30px 20px;
+    }
+    .service-detail-card h3 {
+        font-size: 1.5rem;
+    }
+    .cta-section {
+        padding: 60px 20px;
+        margin-bottom: 50px;
+    }
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+}

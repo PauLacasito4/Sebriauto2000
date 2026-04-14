@@ -21,9 +21,6 @@
                 <a href="vehiculos.html" class="nav-item">
                     <i class="fa-solid fa-car"></i> <span>Vehículos</span>
                 </a>
-                <a href="contactos.html" class="nav-item">
-                    <i class="fa-solid fa-envelope"></i> <span>Mensajes</span>
-                </a>
                 <a href="configuracion.html" class="nav-item">
                     <i class="fa-solid fa-gear"></i> <span>Configuración</span>
                 </a>
@@ -49,16 +46,16 @@
                     <span class="value" id="count-sold">...</span>
                 </div>
                 <div class="stat-card">
-                    <span class="label">Mensajes Pendientes</span>
-                    <span class="value" id="count-messages">...</span>
+                    <span class="label">Total Vendidos</span>
+                    <span class="value" id="count-sold">...</span>
                 </div>
             </div>
 
-            <div class="admin-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div class="admin-grid" style="display: grid; grid-template-columns: 1fr; gap: 30px;">
                 <div class="table-container">
                     <div style="padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
-                        <h3 style="margin: 0;">Últimos Vehículos</h3>
-                        <a href="vehiculos.html" class="text-accent" style="font-size: 0.9rem;">Ver todo</a>
+                        <h3 style="margin: 0;">Últimos Vehículos Añadidos</h3>
+                        <a href="vehiculos.html" class="text-accent" style="font-size: 0.9rem;">Ver todo el inventario</a>
                     </div>
                     <table id="latest-vehicles-table">
                         <thead>
@@ -66,25 +63,6 @@
                                 <th>Marca/Modelo</th>
                                 <th>Precio</th>
                                 <th>Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Carga vía JS -->
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="table-container">
-                    <div style="padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
-                        <h3 style="margin: 0;">Mensajes Recientes</h3>
-                        <a href="contactos.html" class="text-accent" style="font-size: 0.9rem;">Ver todo</a>
-                    </div>
-                    <table id="latest-messages-table">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Fecha</th>
-                                <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -122,14 +100,8 @@
                 .select('*', { count: 'exact', head: true })
                 .eq('vendido', true);
 
-            const { count: msgCount } = await supabase
-                .from('contactos')
-                .select('*', { count: 'exact', head: true })
-                .eq('leido', false);
-
             document.getElementById('count-active').textContent = activeCount || 0;
             document.getElementById('count-sold').textContent = soldCount || 0;
-            document.getElementById('count-messages').textContent = msgCount || 0;
         }
 
         async function loadLatestData() {
@@ -146,22 +118,6 @@
                     <td>${v.marca} ${v.modelo}</td>
                     <td>${v.precio.toLocaleString()} €</td>
                     <td><span class="badge ${v.vendido ? 'badge-secondary' : 'badge-success'}">${v.vendido ? 'Vendido' : 'Stock'}</span></td>
-                </tr>
-            `).join('') || '<tr><td colspan="3">No hay datos</td></tr>';
-
-            // Últimos 5 mensajes
-            const { data: messages } = await supabase
-                .from('contactos')
-                .select('id, nombre, creado_en, leido')
-                .order('creado_en', { ascending: false })
-                .limit(5);
-
-            const mBody = document.querySelector('#latest-messages-table tbody');
-            mBody.innerHTML = messages?.map(m => `
-                <tr>
-                    <td>${m.nombre}</td>
-                    <td style="font-size: 0.8rem; color: var(--text-secondary)">${new Date(m.creado_en).toLocaleDateString()}</td>
-                    <td><a href="contactos.html" class="action-btn"><i class="fa-solid fa-eye"></i></a></td>
                 </tr>
             `).join('') || '<tr><td colspan="3">No hay datos</td></tr>';
         }

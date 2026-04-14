@@ -38,7 +38,7 @@ function renderDetail(v) {
     });
 
     const waMessage = encodeURIComponent(`Hola, me interesa el ${v.marca} ${v.modelo} (${v.anio}). ¿Está disponible?`);
-    const waLink = `https://wa.me/34XXXXXXXXX?text=${waMessage}`;
+    const waLink = `https://wa.me/34695599086?text=${waMessage}`;
 
     detailContainer.innerHTML = `
         <div class="gallery-column">
