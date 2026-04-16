@@ -1,16 +1,10 @@
 /* servicios.css — Estilos de la página Servicios */
 
-.page-header {
-    padding: 120px 20px 60px;
-    background-color: var(--bg-secondary);
-    text-align: center;
-}
-
 .services-detail-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 40px;
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
 .service-detail-card {
@@ -83,30 +77,32 @@
 
 @media (max-width: 900px) {
     .services-detail-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: 1fr 1fr;
         gap: 25px;
+        padding: 50px 0;
     }
     .service-detail-card {
-        padding: 40px;
+        padding: 35px 30px;
     }
 }
 
 @media (max-width: 600px) {
     .services-detail-grid {
         grid-template-columns: 1fr;
-        padding: 40px 0;
+        padding: 30px 0;
+        gap: 20px;
     }
     .service-detail-card {
-        padding: 30px 20px;
+        padding: 28px 20px;
     }
     .service-detail-card h3 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
     .cta-section {
-        padding: 60px 20px;
-        margin-bottom: 50px;
+        padding: 50px 16px;
+        margin-bottom: 40px;
     }
     .cta-section h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 }

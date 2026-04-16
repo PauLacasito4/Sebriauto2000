@@ -127,13 +127,43 @@
 }
 
 .page-header {
-    padding: 120px 20px 40px;
-    background-color: var(--bg-secondary);
-    text-align: center;
+    display: none; /* defined in main.css */
 }
 
 @media (max-width: 992px) {
     .contact-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .contact-info h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-grid {
+        padding: 40px 0;
+    }
+    .contact-info h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    .info-list li {
+        font-size: 1rem;
+        gap: 15px;
+    }
+    .info-list i {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+    }
+    .whatsapp-card, .security-card {
+        padding: 28px 20px;
+    }
+    .whatsapp-card h3 {
+        font-size: 1.4rem;
+    }
+    .map-wrapper {
+        height: 250px;
     }
 }

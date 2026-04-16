@@ -2,8 +2,8 @@
 import { supabase } from '../supabase.js';
 import { checkAuth, logout } from './auth.js';
 
-const CLOUD_NAME = 'TU_CLOUD_NAME';
-const UPLOAD_PRESET = 'TU_PRESET';
+const CLOUD_NAME = 'dy8m7avix';
+const UPLOAD_PRESET = 'sebriauto_uploads';
 
 const form = document.getElementById('vehicle-form');
 const dropZone = document.getElementById('drop-zone');
