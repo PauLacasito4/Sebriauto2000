@@ -73,80 +73,109 @@
         <main class="admin-main">
             <header class="admin-header">
                 <div>
-                    <h1>Configuración del Negocio</h1>
-                    <p style="color: var(--text-secondary);">Edita los datos de contacto y horario que se muestran en la web.</p>
+                    <h1>Ajustes y Textos</h1>
+                    <p style="color: var(--text-secondary);">Configura la información del negocio y personaliza los textos de toda la web.</p>
                 </div>
             </header>
 
-            <form id="config-form">
+            <div class="tabs-container" style="margin-bottom: 30px; border-bottom: 1px solid var(--border-color); display: flex; gap: 20px;">
+                <button class="tab-btn active" data-tab="tab-general" style="background: none; border: none; color: var(--text-primary); padding: 10px 20px; cursor: pointer; border-bottom: 2px solid var(--accent-color); font-weight: 600; font-size: 1rem;"><i class="fa-solid fa-store" style="margin-right: 8px;"></i> General</button>
+                <button class="tab-btn" data-tab="tab-textos" style="background: none; border: none; color: var(--text-secondary); padding: 10px 20px; cursor: pointer; border-bottom: 2px solid transparent; font-weight: 600; font-size: 1rem;"><i class="fa-solid fa-language" style="margin-right: 8px;"></i> Textos y Traducciones</button>
+            </div>
 
-                <!-- DATOS DE CONTACTO -->
-                <div class="config-section">
-                    <h2><i class="fa-solid fa-address-card"></i> Datos de Contacto</h2>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group" style="grid-column: 1/-1;">
-                            <label for="direccion">Dirección</label>
-                            <input type="text" id="direccion" placeholder="Crta Villamarchante 119, 46190 Riba-Roja del Turia, Valencia">
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Teléfono fijo</label>
-                            <input type="tel" id="telefono" placeholder="+34 962 779 772">
-                        </div>
-                        <div class="form-group">
-                            <label for="movil">Móvil / WhatsApp</label>
-                            <input type="tel" id="movil" placeholder="695 599 086">
-                        </div>
-                        <div class="form-group" style="grid-column: 1/-1;">
-                            <label for="email">Email de contacto</label>
-                            <input type="email" id="email" placeholder="benja@sebriauto.es">
+            <!-- TAB GENERAL -->
+            <div id="tab-general" class="tab-content active">
+                <form id="config-form">
+                    <!-- DATOS DE CONTACTO -->
+                    <div class="config-section">
+                        <h2><i class="fa-solid fa-address-card"></i> Datos de Contacto</h2>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group" style="grid-column: 1/-1;">
+                                <label for="direccion">Dirección</label>
+                                <input type="text" id="direccion" placeholder="Crta Villamarchante 119, 46190 Riba-Roja del Turia, Valencia">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono fijo</label>
+                                <input type="tel" id="telefono" placeholder="+34 962 779 772">
+                            </div>
+                            <div class="form-group">
+                                <label for="movil">Móvil / WhatsApp</label>
+                                <input type="tel" id="movil" placeholder="695 599 086">
+                            </div>
+                            <div class="form-group" style="grid-column: 1/-1;">
+                                <label for="email">Email de contacto</label>
+                                <input type="email" id="email" placeholder="benja@sebriauto.es">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- HORARIO -->
-                <div class="config-section">
-                    <h2><i class="fa-solid fa-clock"></i> Horario de Apertura</h2>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group">
-                            <label for="horario_lun_jue">Lunes – Jueves</label>
-                            <input type="text" id="horario_lun_jue" placeholder="08:00 – 15:30">
-                        </div>
-                        <div class="form-group">
-                            <label for="horario_vie">Viernes</label>
-                            <input type="text" id="horario_vie" placeholder="08:00 – 14:00">
-                        </div>
-                        <div class="form-group">
-                            <label for="horario_sab">Sábado</label>
-                            <input type="text" id="horario_sab" placeholder="Cerrado">
-                        </div>
-                        <div class="form-group">
-                            <label for="horario_dom">Domingo</label>
-                            <input type="text" id="horario_dom" placeholder="Cerrado">
+                    <!-- HORARIO -->
+                    <div class="config-section">
+                        <h2><i class="fa-solid fa-clock"></i> Horario de Apertura</h2>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label for="horario_lun_jue">Lunes – Jueves</label>
+                                <input type="text" id="horario_lun_jue" placeholder="08:00 – 15:30">
+                            </div>
+                            <div class="form-group">
+                                <label for="horario_vie">Viernes</label>
+                                <input type="text" id="horario_vie" placeholder="08:00 – 14:00">
+                            </div>
+                            <div class="form-group">
+                                <label for="horario_sab">Sábado</label>
+                                <input type="text" id="horario_sab" placeholder="Cerrado">
+                            </div>
+                            <div class="form-group">
+                                <label for="horario_dom">Domingo</label>
+                                <input type="text" id="horario_dom" placeholder="Cerrado">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- TEXTOS DE LA WEB -->
-                <div class="config-section">
-                    <h2><i class="fa-solid fa-pen-to-square"></i> Textos Generales</h2>
-                    <div class="form-group">
-                        <label for="slogan">Slogan (bajo el logo en el hero)</label>
-                        <input type="text" id="slogan" placeholder="Taller mecánico · Vehículos de ocasión · Riba-roja de Túria">
+                    <div class="config-section">
+                        <h2><i class="fa-solid fa-pen-to-square"></i> Textos Básicos</h2>
+                        <div class="form-group">
+                            <label for="slogan">Slogan (bajo el logo en el hero)</label>
+                            <input type="text" id="slogan" placeholder="Taller mecánico · Vehículos de ocasión · Riba-roja de Túria">
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion_footer">Descripción del footer</label>
+                            <textarea id="descripcion_footer" rows="3" placeholder="Tu taller de confianza en Riba-roja de Túria..."></textarea>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="descripcion_footer">Descripción del footer</label>
-                        <textarea id="descripcion_footer" rows="3" placeholder="Tu taller de confianza en Riba-roja de Túria..."></textarea>
+
+                    <div class="save-bar">
+                        <span id="save-status-general" class="save-status">Se reflejarán automáticamente en la web.</span>
+                        <button type="submit" class="btn btn-primary" id="save-btn-general">
+                            <i class="fa-solid fa-floppy-disk" style="margin-right: 8px;"></i> Guardar General
+                        </button>
                     </div>
-                </div>
+                </form>
+            </div>
 
-                <div class="save-bar">
-                    <span id="save-status">Los cambios se guardan en Supabase y se reflejan automáticamente en la web.</span>
-                    <button type="submit" class="btn btn-primary" id="save-btn">
-                        <i class="fa-solid fa-floppy-disk" style="margin-right: 8px;"></i> Guardar Cambios
-                    </button>
-                </div>
+            <!-- TAB TRADUCCIONES -->
+            <div id="tab-textos" class="tab-content" style="display: none;">
+                <div class="config-section" style="padding: 0; background: transparent; border: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <p style="color: var(--text-secondary); max-width: 600px;">Edita todos los textos de la página en ambos idiomas. Recomendamos no dejar campos en blanco. Los cambios se actualizan en tiempo real.</p>
+                        <button id="import-btn" class="btn btn-outline"><i class="fa-solid fa-upload"></i> Cargar textos del archivo original</button>
+                    </div>
 
-            </form>
+                    <form id="translations-form">
+                        <div id="translations-list" style="display: flex; flex-direction: column; gap: 25px;">
+                            <p class="loading-text" style="color: var(--text-secondary);"><i class="fa-solid fa-spinner fa-spin"></i> Cargando los textos desde Supabase...</p>
+                        </div>
+                        
+                        <div class="save-bar">
+                            <span id="save-status-trans" class="save-status">Se reflejarán automáticamente al recargar la web.</span>
+                            <button type="submit" class="btn btn-primary" id="save-btn-trans">
+                                <i class="fa-solid fa-floppy-disk" style="margin-right: 8px;"></i> Guardar Textos
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </main>
     </div>
 
