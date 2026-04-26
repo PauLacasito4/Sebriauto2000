@@ -1,0 +1,164 @@
+/* nosotros.css — Página Quiénes Somos */
+
+/* Intro grid: texto + estadísticas */
+.nos-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.nos-text h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+}
+
+.nos-text p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+}
+
+/* Stats */
+.nos-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(232, 112, 10, 0.15);
+}
+
+.stat-num {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Valores */
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.valor-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 35px 25px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.valor-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(232, 112, 10, 0.12);
+}
+
+.valor-icon {
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, rgba(232, 112, 10, 0.15), rgba(27, 79, 138, 0.15));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.6rem;
+    color: var(--accent-color);
+    border: 1px solid rgba(232, 112, 10, 0.25);
+}
+
+.valor-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.valor-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* CTA final */
+.nos-cta {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, rgba(232, 112, 10, 0.08), rgba(27, 79, 138, 0.08));
+    border-radius: calc(var(--border-radius) * 2);
+    border: 1px solid var(--border-color);
+}
+
+.nos-cta h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.nos-cta p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: 35px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nos-cta-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .nos-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .valores-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .nos-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .valores-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nos-cta h2 {
+        font-size: 1.6rem;
+    }
+}

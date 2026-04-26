@@ -2,10 +2,11 @@ export const translations = {
     es: {
         // Navbar
         "nav-inicio": "Inicio",
-        "nav-quienes": "Quiénes somos",
+        "nav-nosotros": "Nosotros",
         "nav-servicios": "Servicios",
         "nav-catalogo": "Catálogo",
         "nav-contacto": "Contacto",
+        "nav-cta": "Pedir Cita",
         
         // Hero
         "hero-subtitle": "Taller mecánico · Vehículos de ocasión · Riba-roja de Túria",
@@ -114,15 +115,51 @@ export const translations = {
         "cookie-title": "¿Aceptar cookies?",
         "cookie-text": "Utilizamos cookies propias para mejorar tu experiencia de navegación y seguridad en nuestra web.",
         "cookie-accept": "Aceptar",
-        "cookie-info": "Más información"
+        "cookie-info": "Más información",
+
+        // Footer legal
+        "footer-privacidad": "Política de Privacidad",
+
+        // Página Nosotros
+        "nos-title": "Quiénes Somos",
+        "nos-subtitle": "Un taller familiar con más de 20 años de historia en Riba-roja de Túria",
+        "nos-historia-h2": "Nuestra Historia",
+        "nos-historia-p1": "Sebriauto 2000 nació a principios de los años 2000 de la mano de Benjamín, un mecánico apasionado con años de experiencia en el sector de la automoción. Lo que empezó como un pequeño taller en Riba-roja de Túria se ha convertido con el tiempo en un referente de confianza para los vecinos de la comarca.",
+        "nos-historia-p2": "Nuestra filosofía es sencilla: tratar al cliente como a un amigo. Eso significa presupuestos claros, reparaciones bien hechas y la tranquilidad de saber que tu coche está en las mejores manos.",
+        "nos-historia-p3": "Hoy, más de dos décadas después, seguimos en el mismo sitio, con la misma ilusión del primer día y la tecnología más moderna para cuidar tu vehículo.",
+        "nos-stat-anos": "Años de experiencia",
+        "nos-stat-clientes": "Clientes satisfechos",
+        "nos-stat-marca": "Taller homologado",
+        "nos-stat-garantia": "Transparencia",
+        "nos-valores-h2": "Nuestros Valores",
+        "nos-valores-sub": "Lo que nos define cada día frente a nuestros clientes.",
+        "nos-val-honestidad": "Honestidad",
+        "nos-val-honestidad-desc": "Te decimos lo que tiene el coche y lo que necesita. Nunca facturamos reparaciones innecesarias.",
+        "nos-val-calidad": "Calidad",
+        "nos-val-calidad-desc": "Utilizamos piezas de primera calidad y seguimos los protocolos del fabricante para cada intervención.",
+        "nos-val-rapidez": "Rapidez",
+        "nos-val-rapidez-desc": "Sabemos que necesitas tu coche. Por eso trabajamos para tenerlo listo en el menor tiempo posible.",
+        "nos-val-precio": "Precio justo",
+        "nos-val-precio-desc": "La calidad no tiene por qué ser cara. Ofrecemos el mejor servicio al precio más competitivo de la zona.",
+        "nos-cta-h2": "¿Quieres conocernos en persona?",
+        "nos-cta-p": "Ven a visitarnos al taller o escríbenos por WhatsApp. Estaremos encantados de atenderte.",
+
+        // Testimonios
+        "title-testimonios": "Lo que dicen nuestros clientes",
+        "subtitle-testimonios": "La opinión de quienes ya confían en nosotros.",
+        "test-1": "\"ÁLlevo años yendo a Sebriauto y nunca me han fallado. Siempre te explican qué tiene el coche y el precio es lo que dicen, sin sorpresas.\"",
+        "test-2": "\"Compré un coche de ocasión aquí y fue una experiencia genial. Muy transparentes, lo revisan todo antes de entregártelo y te sientes en buenas manos.\"",
+        "test-3": "\"Rápidos, honestos y con un precio muy competitivo. Me hicieron la pre-ITV y la pasé a la primera. 100% recomendados para cualquier cosa del coche.\"",
+        "test-vecino": "Cliente satisfecho"
     },
     va: {
         // Navbar
         "nav-inicio": "Inici",
-        "nav-quienes": "Qui som",
+        "nav-nosotros": "Nosaltres",
         "nav-servicios": "Servicis",
         "nav-catalogo": "Catàleg",
         "nav-contacto": "Contacte",
+        "nav-cta": "Demanar Cita",
         
         // Hero
         "hero-subtitle": "Taller mecànic · Vehicles d'ocasió · Riba-roja de Túria",
@@ -231,6 +268,41 @@ export const translations = {
         "cookie-title": "¿Acceptar cookies?",
         "cookie-text": "Utilitzem cookies pròpies per a millorar la teua experiència de navegació i seguretat en la nostra web.",
         "cookie-accept": "Acceptar",
-        "cookie-info": "Més informació"
+        "cookie-info": "Més informació",
+
+        // Footer legal
+        "footer-privacidad": "Política de Privacitat",
+
+        // Pàgina Nosaltres
+        "nos-title": "Qui Som",
+        "nos-subtitle": "Un taller familiar amb més de 20 anys d'història a Riba-roja de Túria",
+        "nos-historia-h2": "La nostra Història",
+        "nos-historia-p1": "Sebriauto 2000 va néixer a principis dels anys 2000 de la mà de Benjamín, un mecànic apasionat amb anys d'experiència en el sector de l'automoció. El que va començar com un xicotet taller a Riba-roja de Túria s'ha convertit amb el temps en un referent de confiança per als veïns de la comarca.",
+        "nos-historia-p2": "La nostra filosofia és senzilla: tractar el client com un amic. Això significa pressupostos clars, reparacions ben fetes i la tranquil·litat de saber que el teu cotxe està en les millors mans.",
+        "nos-historia-p3": "Hui, més de dues dècades després, continuem en el mateix lloc, amb la mateixa il·lusió del primer dia i la tecnologia més moderna per a cuidar el teu vehicle.",
+        "nos-stat-anos": "Anys d'experiència",
+        "nos-stat-clientes": "Clients satisfets",
+        "nos-stat-marca": "Taller homologat",
+        "nos-stat-garantia": "Transparència",
+        "nos-valores-h2": "Els nostres Valors",
+        "nos-valores-sub": "Allò que ens defineix cada dia davant dels nostres clients.",
+        "nos-val-honestidad": "Honestedat",
+        "nos-val-honestidad-desc": "Et diem el que té el cotxe i el que necessita. Mai facturem reparacions innecessaries.",
+        "nos-val-calidad": "Qualitat",
+        "nos-val-calidad-desc": "Utilitzem peces de primera qualitat i seguim els protocols del fabricant per a cada intervenció.",
+        "nos-val-rapidez": "Rapidesa",
+        "nos-val-rapidez-desc": "Sabem que necessites el teu cotxe. Per això treballem per a tenir-lo llest en el menor temps possible.",
+        "nos-val-precio": "Preu just",
+        "nos-val-precio-desc": "La qualitat no ha de ser cara. Oferim el millor servei al preu més competitiu de la zona.",
+        "nos-cta-h2": "Vols conéixer-nos en persona?",
+        "nos-cta-p": "Vine a visitar-nos al taller o escriu-nos per WhatsApp. Estarem encantats d'atendre't.",
+
+        // Testimonis
+        "title-testimonios": "El que diuen els nostres clients",
+        "subtitle-testimonios": "L'opinió de qui ja confía en nosaltres.",
+        "test-1": "\"Fa anys que vaig a Sebriauto i mai m'han fallat. Sempre t'expliquen què té el cotxe i el preu és el que diuen, sense sorpreses.\"",
+        "test-2": "\"Vaig comprar un cotxe d'ocasió aci i va ser una experiència genial. Molt transparents, ho revisen tot abans d'entregar-te'l i et sents en bones mans.\"",
+        "test-3": "\"Ràpids, honestos i amb un preu molt competitiu. Em van fer la pre-ITV i la vaig passar a la primera. 100% recomanats per a qualsevol cosa del cotxe.\"",
+        "test-vecino": "Client satisfet"
     }
 };
