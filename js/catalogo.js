@@ -89,7 +89,7 @@ function renderVehicles(vehicles) {
     }
 
     catalogContainer.innerHTML = vehicles.map(v => {
-        const mainPhoto = v.fotos && v.fotos.length > 0 ? v.fotos[0] : 'https://via.placeholder.com/400x300?text=Sin+Imagen';
+        const mainPhoto = v.fotos && v.fotos.length > 0 ? v.fotos[0] : '/img/no-image.svg';
         const formattedPrice = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v.precio);
         
         // Determinar color de etiqueta
@@ -119,7 +119,7 @@ function renderVehicles(vehicles) {
                         <span><i class="fa-solid fa-gauge"></i> ${v.kilometros.toLocaleString()} km</span>
                         <span><i class="fa-solid fa-gas-pump"></i> ${v.combustible}</span>
                     </div>
-                    <a href="vehiculo.html?id=${v.id}" class="btn btn-primary btn-full" data-i18n="btn-ver-detalles">Ver detalles</a>
+                    <a href="/pages/vehiculo.html?id=${v.id}" class="btn btn-primary btn-full" data-i18n="btn-ver-detalles">Ver detalles</a>
                 </div>
             </article>
         `;

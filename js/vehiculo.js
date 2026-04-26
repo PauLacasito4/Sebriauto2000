@@ -27,7 +27,7 @@ async function fetchVehicleDetail() {
 
 function renderDetail(v) {
     const formattedPrice = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v.precio);
-    const photos = v.fotos && v.fotos.length > 0 ? v.fotos : ['https://via.placeholder.com/800x600?text=Sin+Imagen'];
+    const photos = v.fotos && v.fotos.length > 0 ? v.fotos : ['/img/no-image.svg'];
     
     // Cloudinary optimize: add w_800,f_auto,q_auto to URL if it's cloudinary
     const optimizedPhotos = photos.map(url => {
@@ -61,7 +61,7 @@ function renderDetail(v) {
 
         <div class="sticky-info">
             <div class="vehicle-header">
-                <a href="catalogo.html" style="color: var(--text-secondary); display: block; margin-bottom: 20px;">
+                <a href="/pages/catalogo.html" style="color: var(--text-secondary); display: block; margin-bottom: 20px;">
                     <i class="fa-solid fa-arrow-left"></i> Volver al catálogo
                 </a>
                 <h1>${v.marca} ${v.modelo}</h1>

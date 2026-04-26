@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | Sebriauto Admin</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -75,8 +75,8 @@
     </div>
 
     <script type="module">
-        import { supabase } from '../js/supabase.js';
-        import { checkAuth, logout } from '../js/admin/auth.js';
+        import { supabase } from '/js/supabase.js';
+        import { checkAuth, logout } from '/js/admin/auth.js';
 
         async function init() {
             const session = await checkAuth();
@@ -126,3 +126,4 @@
     </script>
 </body>
 </html>
+

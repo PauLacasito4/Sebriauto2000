@@ -2,19 +2,10 @@
 import { applyTranslations, setLanguage } from './i18n.js';
 
 const BASE = (() => {
-    // Intentar determinar la raíz del proyecto de forma más robusta
-    // Si estamos en local (file://) o en un entorno donde pathname es largo
     const path = window.location.pathname;
-    
-    // Si el path termina en .html, quitamos el nombre del archivo
-    const dir = path.substring(0, path.lastIndexOf('/'));
-    
-    // Contamos cuántas carpetas hay DESPUÉS de la raíz del proyecto
-    // Asumimos que la raíz es donde están index.html y la carpeta 'partials'
-    // Una forma simple es ver si estamos en una subcarpeta conocida (ej: admin/)
     if (path.includes('/admin/')) return '../';
-    
-    return './'; 
+    if (path.includes('/pages/')) return '../';
+    return './';
 })();
 
 async function loadPartial(selector, file) {

@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sebriauto 2000 | Taller Mecánico y Venta de Coches en Riba-roja de Túria</title>
     <meta name="description" content="Taller mecánico multimarca y venta de vehículos de ocasión en Riba-roja de Túria. Confianza, experiencia y profesionalidad para tu coche.">
-    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -16,10 +16,10 @@
 
     <header class="hero">
         <h1>SEBRI<span>AUTO</span> 2000</h1>
-        <img src="img/logo.png" alt="Sebriauto 2000" class="hero-logo">
+        <img src="/img/logo.png" alt="Sebriauto 2000" class="hero-logo">
         <p data-i18n="hero-subtitle">Taller mecánico · Vehículos de ocasión · Riba-roja de Túria</p>
         <div class="hero-btns">
-            <a href="catalogo.html" class="btn btn-accent" data-i18n="btn-ver-vehiculos">Ver vehículos</a>
+            <a href="/pages/catalogo.html" class="btn btn-accent" data-i18n="btn-ver-vehiculos">Ver vehículos</a>
             <a href="https://wa.me/34695599086" class="btn btn-outline" data-i18n="btn-contactar" target="_blank">Contactar</a>
         </div>
     </header>
@@ -75,7 +75,7 @@
                 <p class="loading-text" data-i18n="loading">Cargando vehículos...</p>
             </div>
             <div class="section-cta">
-                <a href="catalogo.html" class="btn btn-outline" data-i18n="btn-ver-todo">Ver catálogo completo</a>
+                <a href="/pages/catalogo.html" class="btn btn-outline" data-i18n="btn-ver-todo">Ver catálogo completo</a>
             </div>
         </div>
     </section>
@@ -109,9 +109,9 @@
     <div id="footer-placeholder"></div>
 
 
-    <script type="module" src="js/components.js"></script>
+    <script type="module" src="/js/components.js"></script>
     <script type="module">
-        import { supabase } from './js/supabase.js';
+        import { supabase } from '/js/supabase.js';
 
         async function loadFeatured() {
             const container = document.getElementById('featured-vehicles');
@@ -149,7 +149,7 @@
                                     <span><i class="fa-solid fa-gauge"></i> ${v.kilometros.toLocaleString()} km</span>
                                     <span><i class="fa-solid fa-gas-pump"></i> ${v.combustible}</span>
                                 </div>
-                                <a href="vehiculo.html?id=${v.id}" class="btn btn-outline btn-full">Ver detalles</a>
+                                <a href="/pages/vehiculo?id=${v.id}" class="btn btn-outline btn-full">Ver detalles</a>
                             </div>
                         </article>
                     `;
@@ -164,3 +164,4 @@
     </script>
 </body>
 </html>
+
