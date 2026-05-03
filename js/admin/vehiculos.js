@@ -34,11 +34,10 @@ function renderTable(vehicles) {
 
     tableBody.innerHTML = vehicles.map(v => {
         const photo = v.fotos && v.fotos.length > 0 ? v.fotos[0] : 'https://via.placeholder.com/100x75?text=No+Img';
-        const optimizedPhoto = photo.includes('cloudinary') ? photo.replace('/upload/', '/upload/w_100,h_75,c_fill/') : photo;
         
         return `
             <tr data-id="${v.id}">
-                <td><img src="${optimizedPhoto}" alt="" style="width: 60px; height: 45px; object-fit: cover; border-radius: 4px;"></td>
+                <td><img src="${photo}" alt="" style="width: 60px; height: 45px; object-fit: cover; border-radius: 4px;"></td>
                 <td>
                     <strong>${v.marca} ${v.modelo}</strong><br>
                     <span style="font-size: 0.8rem; color: var(--text-secondary)">${v.anio} • ${v.kilometros.toLocaleString()} km</span>

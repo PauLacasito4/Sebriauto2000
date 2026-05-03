@@ -41,14 +41,6 @@
                     <span class="label">Vehículos Activos</span>
                     <span class="value" id="count-active">...</span>
                 </div>
-                <div class="stat-card">
-                    <span class="label">Total Vendidos</span>
-                    <span class="value" id="count-sold">...</span>
-                </div>
-                <div class="stat-card">
-                    <span class="label">Total Vendidos</span>
-                    <span class="value" id="count-sold">...</span>
-                </div>
             </div>
 
             <div class="admin-grid" style="display: grid; grid-template-columns: 1fr; gap: 30px;">
@@ -95,13 +87,7 @@
                 .select('*', { count: 'exact', head: true })
                 .eq('vendido', false);
 
-            const { count: soldCount } = await supabase
-                .from('vehiculos')
-                .select('*', { count: 'exact', head: true })
-                .eq('vendido', true);
-
             document.getElementById('count-active').textContent = activeCount || 0;
-            document.getElementById('count-sold').textContent = soldCount || 0;
         }
 
         async function loadLatestData() {

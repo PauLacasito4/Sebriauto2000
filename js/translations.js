@@ -1,19 +1,23 @@
+/**
+ * DICCIONARIO DE TRADUCCIONES - Sebriauto 2000
+ * Centraliza todos los textos de la web para soportar multi-idioma (Castellano y Valenciano).
+ * Cada clave (Key) se corresponde con el atributo [data-i18n] en el HTML.
+ */
 export const translations = {
+    // SECCIÓN 🇪🇸 CASTELLANO
     es: {
-        // Navbar
+        // --- NAVEGACIÓN (Navbar) ---
         "nav-inicio": "Inicio",
-        "nav-nosotros": "Nosotros",
         "nav-servicios": "Servicios",
         "nav-catalogo": "Catálogo",
         "nav-contacto": "Contacto",
-        "nav-cta": "Pedir Cita",
         
-        // Hero
+        // --- CABECERA PRINCIPAL (Hero) ---
         "hero-subtitle": "Taller mecánico · Vehículos de ocasión · Riba-roja de Túria",
         "btn-ver-vehiculos": "Ver vehículos",
         "btn-contactar": "Contactar",
         
-        // Servicios Home
+        // --- SERVICIOS EN PÁGINA DE INICIO ---
         "title-servicios": "Nuestros Servicios",
         "subtitle-servicios": "Ofrecemos soluciones integrales para el mantenimiento y reparación de tu vehículo con la máxima garantía.",
         "srv-mecanica": "Mecánica General",
@@ -29,23 +33,23 @@ export const translations = {
         "srv-bateria": "Baterías y Electricidad",
         "srv-bateria-desc": "Comprobación y sustitución de baterías, alternadores y sistemas eléctricos.",
 
-        // Destacados Home
+        // --- BLOQUE DE VEHÍCULOS DESTACADOS ---
         "title-destacados": "Vehículos Destacados",
         "subtitle-destacados": "Descubre nuestra selección de coches de ocasión totalmente revisados.",
         "btn-ver-todo": "Ver catálogo completo",
         "loading": "Cargando vehículos...",
 
-        // Quiénes somos home
+        // --- BLOQUE DE VALORES (Elegirnos) ---
         "title-porque": "¿Por qué elegirnos?",
-        "subtitle-porque": "Nuestra trayectoria y clientes satisfechos avalan nuestro trabajo diario.",
+        "test-vecino": "Reseña de Google",
         "why-exp": "Experiencia",
-        "why-exp-desc": "Más de 20 años cuidando de los vehículos de nuestros vecinos en Riba-roja.",
+        "why-exp-desc": "Cuidando de los vehículos de nuestros vecinos en Riba-roja.",
         "why-conf": "Confianza",
         "why-conf-desc": "Transparencia total en cada presupuesto y reparación. Sin sorpresas.",
         "why-price": "Precio Justo",
         "why-price-desc": "Calidad profesional a precios competitivos. La mejor relación calidad-precio.",
 
-        // Página Servicios Detalle
+        // --- PÁGINA DETALLE DE SERVICIOS ---
         "srv-page-title": "Especialistas en tu coche",
         "srv-page-subtitle": "Servicios mecánicos profesionales con tecnología de vanguardia",
         "srv-mecanica-long": "Desde reparaciones complejas de motor hasta el mantenimiento más básico. Cuidamos cada detalle para garantizar tu seguridad.",
@@ -62,7 +66,7 @@ export const translations = {
         "cta-boxes-p": "Pide cita ahora y deja tu vehículo en manos de profesionales.",
         "btn-cita": "Pedir cita previa",
 
-        // Página Contacto
+        // --- PÁGINA DE CONTACTO ---
         "cont-page-title": "Contacta con nosotros",
         "cont-page-subtitle": "Estamos aquí para ayudarte. Ven a visitarnos o escríbenos.",
         "cont-info-h2": "Información de contacto",
@@ -81,7 +85,7 @@ export const translations = {
         "ph-nombre": "Escribe tu nombre",
         "ph-mensaje": "¿En qué podemos ayudarte?",
 
-        // Catálogo
+        // --- LISTADO CATÁLOGO (Filtros y Búsqueda) ---
         "cat-title": "Vehículos de Ocasión",
         "cat-subtitle": "Encuentra tu próximo coche totalmente garantizado y revisado.",
         "cat-filter-search": "Buscar modelo",
@@ -99,7 +103,7 @@ export const translations = {
         "cat-no-results-desc": "Prueba a limpiar los filtros o cambiar los criterios de búsqueda.",
         "btn-ver-detalles": "Ver detalles",
 
-        // Footer
+        // --- PIE DE PÁGINA (Footer) ---
         "footer-desc": "Tu taller de confianza en Riba-roja de Túria. Mecánica multimarca y venta de vehículos de ocasión seleccionados.",
         "footer-links": "Enlaces",
         "footer-contacto": "Contacto",
@@ -109,64 +113,33 @@ export const translations = {
         "footer-h3": "Sábado y Domingo: Cerrado",
         "footer-copy": "© 2026 Sebriauto 2000. Todos los derechos reservados.",
         "footer-legal": "Aviso Legal",
+        "footer-privacy": "Política de Privacidad",
+        "footer-cookies": "Política de Cookies",
         "footer-sitemap": "Mapa Web",
         
-        // Cookies
+        // --- POLÍTICA DE COOKIES Y ERRORES ---
         "cookie-title": "¿Aceptar cookies?",
         "cookie-text": "Utilizamos cookies propias para mejorar tu experiencia de navegación y seguridad en nuestra web.",
         "cookie-accept": "Aceptar",
         "cookie-info": "Más información",
-
-        // Footer legal
-        "footer-privacidad": "Política de Privacidad",
-
-        // Página Nosotros
-        "nos-title": "Quiénes Somos",
-        "nos-subtitle": "Un taller familiar con más de 20 años de historia en Riba-roja de Túria",
-        "nos-historia-h2": "Nuestra Historia",
-        "nos-historia-p1": "Sebriauto 2000 nació a principios de los años 2000 de la mano de Benjamín, un mecánico apasionado con años de experiencia en el sector de la automoción. Lo que empezó como un pequeño taller en Riba-roja de Túria se ha convertido con el tiempo en un referente de confianza para los vecinos de la comarca.",
-        "nos-historia-p2": "Nuestra filosofía es sencilla: tratar al cliente como a un amigo. Eso significa presupuestos claros, reparaciones bien hechas y la tranquilidad de saber que tu coche está en las mejores manos.",
-        "nos-historia-p3": "Hoy, más de dos décadas después, seguimos en el mismo sitio, con la misma ilusión del primer día y la tecnología más moderna para cuidar tu vehículo.",
-        "nos-stat-anos": "Años de experiencia",
-        "nos-stat-clientes": "Clientes satisfechos",
-        "nos-stat-marca": "Taller homologado",
-        "nos-stat-garantia": "Transparencia",
-        "nos-valores-h2": "Nuestros Valores",
-        "nos-valores-sub": "Lo que nos define cada día frente a nuestros clientes.",
-        "nos-val-honestidad": "Honestidad",
-        "nos-val-honestidad-desc": "Te decimos lo que tiene el coche y lo que necesita. Nunca facturamos reparaciones innecesarias.",
-        "nos-val-calidad": "Calidad",
-        "nos-val-calidad-desc": "Utilizamos piezas de primera calidad y seguimos los protocolos del fabricante para cada intervención.",
-        "nos-val-rapidez": "Rapidez",
-        "nos-val-rapidez-desc": "Sabemos que necesitas tu coche. Por eso trabajamos para tenerlo listo en el menor tiempo posible.",
-        "nos-val-precio": "Precio justo",
-        "nos-val-precio-desc": "La calidad no tiene por qué ser cara. Ofrecemos el mejor servicio al precio más competitivo de la zona.",
-        "nos-cta-h2": "¿Quieres conocernos en persona?",
-        "nos-cta-p": "Ven a visitarnos al taller o escríbenos por WhatsApp. Estaremos encantados de atenderte.",
-
-        // Testimonios
-        "title-testimonios": "Lo que dicen nuestros clientes",
-        "subtitle-testimonios": "La opinión de quienes ya confían en nosotros.",
-        "test-1": "\"ÁLlevo años yendo a Sebriauto y nunca me han fallado. Siempre te explican qué tiene el coche y el precio es lo que dicen, sin sorpresas.\"",
-        "test-2": "\"Compré un coche de ocasión aquí y fue una experiencia genial. Muy transparentes, lo revisan todo antes de entregártelo y te sientes en buenas manos.\"",
-        "test-3": "\"Rápidos, honestos y con un precio muy competitivo. Me hicieron la pre-ITV y la pasé a la primera. 100% recomendados para cualquier cosa del coche.\"",
-        "test-vecino": "Cliente satisfecho"
+        "error-title": "¡Vaya! Parece que te has perdido",
+        "error-text": "La página que buscas no existe o ha sido movida. Puedes volver al inicio o contactar con nosotros si necesitas ayuda."
     },
+
+    // SECCIÓN 💙 VALENCIÀ
     va: {
-        // Navbar
+        // --- NAVEGACIÓ ---
         "nav-inicio": "Inici",
-        "nav-nosotros": "Nosaltres",
         "nav-servicios": "Servicis",
         "nav-catalogo": "Catàleg",
         "nav-contacto": "Contacte",
-        "nav-cta": "Demanar Cita",
         
-        // Hero
+        // --- CABECERA (Hero) ---
         "hero-subtitle": "Taller mecànic · Vehicles d'ocasió · Riba-roja de Túria",
         "btn-ver-vehiculos": "Veure vehicles",
         "btn-contactar": "Contactar",
         
-        // Servicios Home
+        // --- SERVICIS ---
         "title-servicios": "Els nostres Servicis",
         "subtitle-servicios": "Oferim solucions integrals per al manteniment i reparació del teu vehicle amb la màxima garantia.",
         "srv-mecanica": "Mecànica General",
@@ -182,51 +155,50 @@ export const translations = {
         "srv-bateria": "Bateries i Electricitat",
         "srv-bateria-desc": "Comprovació i substitució de bateries, alternadors i sistemes elèctrics.",
 
-        // Destacados Home
+        // --- DESTACATS ---
         "title-destacados": "Vehicles Destacats",
         "subtitle-destacados": "Descobreix la nostra selecció de cotxes d'ocasió totalment revisats.",
         "btn-ver-todo": "Veure catàleg complet",
         "loading": "Carregant vehicles...",
 
-        // Quiénes somos home
+        // --- PER QUÈ TRIAR-NOS ---
         "title-porque": "Per què triar-nos?",
-        "subtitle-porque": "La nostra trajectòria i clients satisfets avalen el nostre treball diari.",
         "why-exp": "Experiència",
-        "why-exp-desc": "Més de 20 anys cuidant dels vehicles dels nostres veïns a Riba-roja.",
+        "why-exp-desc": "Cuidant dels vehicles dels nostres veïns a Riba-roja.",
         "why-conf": "Confiança",
         "why-conf-desc": "Transparència total en cada pressupost i reparació. Sense sorpreses.",
         "why-price": "Preu Just",
         "why-price-desc": "Qualitat professional a preus competitius. La millor relació qualitat-preu.",
 
-        // Página Servicios Detalle
+        // --- DETALL DE SERVICIS ---
         "srv-page-title": "Especialistes en el teu cotxe",
         "srv-page-subtitle": "Servicis mecànics professionals amb tecnologia d'avantguarda",
         "srv-mecanica-long": "Des de reparacions complexes de motor fins al manteniment més bàsic. Cuidem cada detall per a garantir la teua seguretat.",
-        "srv-diagnosis-long": "Equipament d'última generació per a llegir els codis d'error de qualsevol centraleta multimarca i solucionar averies difícils.",
-        "srv-clima": "Climatització",
+        "srv-diagnosis-long": "Equipament d'última generació per a llegir los codis d'error de qualsevol centraleta multimarca i solucionar averies difícils.",
+        "srv-clima": "Climatización",
         "srv-clima-long": "Mantén la temperatura perfecta en el teu habitacle. Realitzem càrregues de gas i detecció de fugues en sistemes d'aire acondicionat.",
         "srv-elec": "Electricitat",
         "srv-elec-long": "Reparem tot tipus de fallades elèctriques, des d'una bombeta fosca fins a problemas complexos en l'alternador o arrencada.",
         "srv-itv": "Revisió Pre-ITV",
-        "srv-itv-long": "No et portes sorpreses en l'estació. Revisem tots els punts clau que exigix la inspecció tècnica de vehicles.",
+        "srv-itv-long": "No et portes sorpreses en l'estació. Revisem tots los punts clau que exigix la inspecció tècnica de vehicles.",
         "srv-neumaticos": "Pneumàtics",
         "srv-neumaticos-long": "L'únic contacte amb l'asfalt. Oferim les millors marques i realitzem l'equilibrat i alineació de direcció.",
-        "cta-boxes": "El teu cotxe necessita passar per boxes?",
+        "cta-boxes": "El teu cotxe necessita passar por boxes?",
         "cta-boxes-p": "Demana cita ara i deixa el teu vehicle en mans de professionals.",
         "btn-cita": "Demanar cita prèvia",
 
-        // Página Contacto
+        // --- CONTACTE ---
         "cont-page-title": "Contacta amb nosaltres",
         "cont-page-subtitle": "Estem ací per a ajudar-te. Vine a visitar-nos o escriu-nos.",
         "cont-info-h2": "Informació de contacte",
         "cont-dir": "Direcció",
         "cont-tel": "Telèfon",
         "cont-mov": "Mòbil / WhatsApp",
-        "cont-hor": "Horari",
+        "cont-hor": "Horario",
         "cont-hor-1": "Dilluns – Dijous: 08:00 – 15:30",
         "cont-hor-2": "Divendres: 08:00 – 14:00",
         "cont-wa-h3": "Contacta per WhatsApp",
-        "cont-wa-p": "Per a la teua seguretat i rapidesa, gestionem totes les consultes directament per WhatsApp. Així evitem phishing i correus fraudulents.",
+        "cont-wa-p": "Per a la teua seguretat i rapidesa, gestionem totes les consultes directament por WhatsApp. Així evitem phishing i correus fraudulents.",
         "btn-wa": "Escriure per WhatsApp",
         "cont-sec-title": "Zona Segura",
         "cont-sec-desc": "Sebriauto 2000 mai et demanarà contrasenyes ni dades bancàries per email o SMS. La nostra comunicació oficial sempre es realitza a través dels nostres telèfons autoritzats.",
@@ -234,7 +206,7 @@ export const translations = {
         "ph-nombre": "Escriu el teu nom",
         "ph-mensaje": "En què podem ajudar-te?",
 
-        // Catálogo
+        // --- CATÀLEG ---
         "cat-title": "Vehicles d'Ocasió",
         "cat-subtitle": "Troba el teu pròxim cotxe totalment garantit i revisat.",
         "cat-filter-search": "Buscar model",
@@ -252,7 +224,7 @@ export const translations = {
         "cat-no-results-desc": "Prova a netejar els filtres o canviar els criteris de cerca.",
         "btn-ver-detalles": "Veure detalls",
 
-        // Footer
+        // --- FOOTER ---
         "footer-desc": "El teu taller de confiança a Riba-roja de Túria. Mecànica multimarca i venda de vehicles d'ocasió seleccionats.",
         "footer-links": "Enllaços",
         "footer-contacto": "Contacte",
@@ -260,49 +232,18 @@ export const translations = {
         "footer-h1": "Dilluns - Dijous: 08:00 - 15:30",
         "footer-h2": "Divendres: 08:00 - 14:00",
         "footer-h3": "Dissabte i Diumenge: Tancat",
-        "footer-copy": "© 2026 Sebriauto 2000. Tots els drets reservats.",
+        "footer-copy": "© 2026 Sebriauto 2000. Tots los drets reservats.",
         "footer-legal": "Avís Legal",
+        "footer-privacy": "Política de Privacitat",
+        "footer-cookies": "Política de Cookies",
         "footer-sitemap": "Mapa Web",
 
-        // Cookies
+        // --- COOKIES I ERRORS ---
         "cookie-title": "¿Acceptar cookies?",
         "cookie-text": "Utilitzem cookies pròpies per a millorar la teua experiència de navegació i seguretat en la nostra web.",
         "cookie-accept": "Acceptar",
         "cookie-info": "Més informació",
-
-        // Footer legal
-        "footer-privacidad": "Política de Privacitat",
-
-        // Pàgina Nosaltres
-        "nos-title": "Qui Som",
-        "nos-subtitle": "Un taller familiar amb més de 20 anys d'història a Riba-roja de Túria",
-        "nos-historia-h2": "La nostra Història",
-        "nos-historia-p1": "Sebriauto 2000 va néixer a principis dels anys 2000 de la mà de Benjamín, un mecànic apasionat amb anys d'experiència en el sector de l'automoció. El que va començar com un xicotet taller a Riba-roja de Túria s'ha convertit amb el temps en un referent de confiança per als veïns de la comarca.",
-        "nos-historia-p2": "La nostra filosofia és senzilla: tractar el client com un amic. Això significa pressupostos clars, reparacions ben fetes i la tranquil·litat de saber que el teu cotxe està en les millors mans.",
-        "nos-historia-p3": "Hui, més de dues dècades després, continuem en el mateix lloc, amb la mateixa il·lusió del primer dia i la tecnologia més moderna per a cuidar el teu vehicle.",
-        "nos-stat-anos": "Anys d'experiència",
-        "nos-stat-clientes": "Clients satisfets",
-        "nos-stat-marca": "Taller homologat",
-        "nos-stat-garantia": "Transparència",
-        "nos-valores-h2": "Els nostres Valors",
-        "nos-valores-sub": "Allò que ens defineix cada dia davant dels nostres clients.",
-        "nos-val-honestidad": "Honestedat",
-        "nos-val-honestidad-desc": "Et diem el que té el cotxe i el que necessita. Mai facturem reparacions innecessaries.",
-        "nos-val-calidad": "Qualitat",
-        "nos-val-calidad-desc": "Utilitzem peces de primera qualitat i seguim els protocols del fabricant per a cada intervenció.",
-        "nos-val-rapidez": "Rapidesa",
-        "nos-val-rapidez-desc": "Sabem que necessites el teu cotxe. Per això treballem per a tenir-lo llest en el menor temps possible.",
-        "nos-val-precio": "Preu just",
-        "nos-val-precio-desc": "La qualitat no ha de ser cara. Oferim el millor servei al preu més competitiu de la zona.",
-        "nos-cta-h2": "Vols conéixer-nos en persona?",
-        "nos-cta-p": "Vine a visitar-nos al taller o escriu-nos per WhatsApp. Estarem encantats d'atendre't.",
-
-        // Testimonis
-        "title-testimonios": "El que diuen els nostres clients",
-        "subtitle-testimonios": "L'opinió de qui ja confía en nosaltres.",
-        "test-1": "\"Fa anys que vaig a Sebriauto i mai m'han fallat. Sempre t'expliquen què té el cotxe i el preu és el que diuen, sense sorpreses.\"",
-        "test-2": "\"Vaig comprar un cotxe d'ocasió aci i va ser una experiència genial. Molt transparents, ho revisen tot abans d'entregar-te'l i et sents en bones mans.\"",
-        "test-3": "\"Ràpids, honestos i amb un preu molt competitiu. Em van fer la pre-ITV i la vaig passar a la primera. 100% recomanats per a qualsevol cosa del cotxe.\"",
-        "test-vecino": "Client satisfet"
+        "error-title": "Vaja! Pareix que t'has perdut",
+        "error-text": "La pàgina que busques no existix o ha sigut moguda. Pots tornar a l'inici o contactar amb nosaltres si necesites ajuda."
     }
 };

@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [{
-    "source": "/admin/(.*)",
+    "source": "/benja_administrador/(.*)",
     "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
   }],
   "routes": [

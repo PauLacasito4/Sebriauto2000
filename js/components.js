@@ -1,13 +1,19 @@
-// components.js — Carga navbar y footer desde partials/
+// components.js — Este script se encarga de cargar elementos comunes como el Navbar y el Footer
+// También gestiona el menú móvil, las animaciones de entrada y el aviso de cookies.
 import { applyTranslations, setLanguage } from './i18n.js';
 
+// Determinamos la ruta base para cargar los archivos estáticos desde cualquier subdirectorio (admin, pages, etc.)
 const BASE = (() => {
     const path = window.location.pathname;
     if (path.includes('/admin/')) return '../';
     if (path.includes('/pages/')) return '../';
+    if (path.includes('/benja_administrador/')) return '../';
     return './';
 })();
 
+/**
+ * Carga un archivo HTML parcial y lo inyecta en el selector indicado.
+ */
 async function loadPartial(selector, file) {
     const el = document.querySelector(selector);
     if (!el) return;
@@ -15,24 +21,25 @@ async function loadPartial(selector, file) {
         const res = await fetch(BASE + 'partials/' + file);
         if (!res.ok) throw new Error('No se pudo cargar ' + file);
         const html = await res.text();
-        el.innerHTML = html; // Usar innerHTML en lugar de outerHTML para mantener el placeholder si se desea, o simplemente inyectar
         
-        // Si queremos que el <nav> o <footer> sea el elemento raíz, podemos hacer:
-        // el.outerHTML = html;
-        // Pero mantendremos innerHTML para evitar perder la referencia si se llama varias veces (aunque no debería)
+        // Inyectamos el contenido y reemplazamos el placeholder
         el.outerHTML = html;
     } catch (e) {
-        console.warn('[components.js]', e.message);
+        console.warn('[Componentes]', e.message);
     }
 }
 
+/**
+ * Inicializa la lógica común de la página: carga de parciales, idioma y animaciones.
+ */
 async function init() {
+    // Cargamos Navbar y Footer de forma paralela
     await Promise.all([
         loadPartial('#navbar-placeholder', 'navbar.html'),
         loadPartial('#footer-placeholder', 'footer.html'),
     ]);
 
-    // Marcar el enlace activo en la navbar
+    // Lógica para marcar el enlace activo en la navegación según la URL actual
     const path = window.location.pathname;
     const page = path.split('/').pop().replace('.html', '') || 'index';
 
@@ -43,7 +50,7 @@ async function init() {
         }
     });
 
-    // Menú móvil (toggle)
+    // Menú móvil (Hamburguesa)
     const toggleBtn = document.getElementById('nav-toggle-btn');
     const navLinks  = document.querySelector('.nav-links');
     if (toggleBtn && navLinks) {
@@ -52,16 +59,16 @@ async function init() {
             navLinks.classList.toggle('nav-open');
         });
         
-        // Cerrar al hacer click fuera
+        // Al hacer clic fuera del menú, lo cerramos automáticamente
         document.addEventListener('click', () => {
             navLinks.classList.remove('nav-open');
         });
     }
 
-    // Traducir la página tras cargar componentes
+    // Aplicamos las traducciones dinámicas a toda la página
     applyTranslations();
 
-    // Configurar botones de idioma
+    // Vinculamos los botones de cambio de idioma
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -70,7 +77,7 @@ async function init() {
         });
     });
 
-    // Observer para animaciones de entrada (reveal)
+    // Sistema de detección para animaciones de entrada (Intersection Observer)
     const observerOptions = {
         threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
@@ -80,7 +87,7 @@ async function init() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active-reveal');
-                revealObserver.unobserve(entry.target);
+                revealObserver.unobserve(entry.target); // Dejamos de observar una vez activada
             }
         });
     }, observerOptions);
@@ -89,6 +96,7 @@ async function init() {
         revealObserver.observe(el);
     });
 
+    // Gestión del banner legal de cookies
     handleCookies();
 }
 
@@ -102,7 +110,7 @@ function handleCookies() {
                 <p data-i18n="cookie-text">Utilizamos cookies propias para mejorar tu experiencia de navegación y seguridad.</p>
                 <div class="cookie-btns">
                     <button id="accept-cookies" class="btn btn-primary" data-i18n="cookie-accept">Aceptar</button>
-                    <a href="aviso-legal.html" class="btn btn-outline" data-i18n="cookie-info">Más info</a>
+                    <a href="politica-cookies.html" class="btn btn-outline" data-i18n="cookie-info">Más info</a>
                 </div>
             </div>
         `;

@@ -21,6 +21,7 @@ body {
 .sidebar-logo {
     font-size: 1.25rem;
     font-weight: 800;
+    letter-spacing: -1.5px;
     margin-bottom: 50px;
     display: block;
     text-align: center;
@@ -281,7 +282,7 @@ tr:last-child td { border-bottom: none; }
 .login-card h2 {
     font-size: 1.8rem;
     font-weight: 800;
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
 }
 
 .login-card label {

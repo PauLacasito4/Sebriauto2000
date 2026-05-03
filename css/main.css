@@ -7,7 +7,7 @@
     --bg-secondary: #161616;
     --bg-card: #1A1A1A;
     --text-primary: #FFFFFF;
-    --text-secondary: #A0A0A0;
+    --text-secondary: #B0B0B0;
     --primary-color: #1B4F8A; /* Azul Corporativo */
     --accent-color: #E8700A;  /* Naranja/Dorado */
     --accent-hover: #FF8520;
@@ -125,11 +125,11 @@ button, .btn {
     align-items: center;
     font-weight: 800;
     font-size: 1.5rem;
-    letter-spacing: -0.5px;
+    letter-spacing: -1.5px;
 }
 
 .logo span:first-child { color: white; }
-.logo span:last-child { color: var(--accent-color); margin-left: 2px; }
+.logo span:last-child { color: white; margin-left: 0; }
 
 .nav-links {
     display: flex;

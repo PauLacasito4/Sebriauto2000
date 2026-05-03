@@ -73,15 +73,11 @@
         <main class="admin-main">
             <header class="admin-header">
                 <div>
-                    <h1>Ajustes y Textos</h1>
-                    <p style="color: var(--text-secondary);">Configura la información del negocio y personaliza los textos de toda la web.</p>
+                    <h1>Ajustes Generales</h1>
+                    <p style="color: var(--text-secondary);">Configura la información básica de tu negocio.</p>
                 </div>
             </header>
 
-            <div class="tabs-container" style="margin-bottom: 30px; border-bottom: 1px solid var(--border-color); display: flex; gap: 20px;">
-                <button class="tab-btn active" data-tab="tab-general" style="background: none; border: none; color: var(--text-primary); padding: 10px 20px; cursor: pointer; border-bottom: 2px solid var(--accent-color); font-weight: 600; font-size: 1rem;"><i class="fa-solid fa-store" style="margin-right: 8px;"></i> General</button>
-                <button class="tab-btn" data-tab="tab-textos" style="background: none; border: none; color: var(--text-secondary); padding: 10px 20px; cursor: pointer; border-bottom: 2px solid transparent; font-weight: 600; font-size: 1rem;"><i class="fa-solid fa-language" style="margin-right: 8px;"></i> Textos y Traducciones</button>
-            </div>
 
             <!-- TAB GENERAL -->
             <div id="tab-general" class="tab-content active">
@@ -153,28 +149,6 @@
                 </form>
             </div>
 
-            <!-- TAB TRADUCCIONES -->
-            <div id="tab-textos" class="tab-content" style="display: none;">
-                <div class="config-section" style="padding: 0; background: transparent; border: none;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                        <p style="color: var(--text-secondary); max-width: 600px;">Edita todos los textos de la página en ambos idiomas. Recomendamos no dejar campos en blanco. Los cambios se actualizan en tiempo real.</p>
-                        <button id="import-btn" class="btn btn-outline"><i class="fa-solid fa-upload"></i> Cargar textos del archivo original</button>
-                    </div>
-
-                    <form id="translations-form">
-                        <div id="translations-list" style="display: flex; flex-direction: column; gap: 25px;">
-                            <p class="loading-text" style="color: var(--text-secondary);"><i class="fa-solid fa-spinner fa-spin"></i> Cargando los textos desde Supabase...</p>
-                        </div>
-                        
-                        <div class="save-bar">
-                            <span id="save-status-trans" class="save-status">Se reflejarán automáticamente al recargar la web.</span>
-                            <button type="submit" class="btn btn-primary" id="save-btn-trans">
-                                <i class="fa-solid fa-floppy-disk" style="margin-right: 8px;"></i> Guardar Textos
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
 
         </main>
     </div>
