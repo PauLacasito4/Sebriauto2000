@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Vehículo | Sebriauto Admin</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .drop-zone {
+            border: 2px dashed var(--border-color);
+            padding: 40px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .drop-zone:hover, .drop-zone.dragover {
+            border-color: var(--primary-color);
+            background-color: rgba(27, 79, 138, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <span class="text-primary">SEBRI</span><span class="text-accent">AUTO</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i> <span>Dashboard</span>
+                </a>
+                <a href="vehiculos.html" class="nav-item active">
+                    <i class="fa-solid fa-car"></i> <span>Vehículos</span>
+                </a>
+                <a href="configuracion.html" class="nav-item">
+                    <i class="fa-solid fa-gear"></i> <span>Configuración</span>
+                </a>
+            </nav>
+            <button id="logout-btn" class="nav-item" style="margin-top: auto; background: transparent; cursor: pointer; border: none; width: 100%;">
+                <i class="fa-solid fa-right-from-bracket"></i> <span>Cerrar Sesión</span>
+            </button>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <div>
+                    <h1 id="form-title">Añadir Nuevo Vehículo</h1>
+                    <p style="color: var(--text-secondary);">Completa todos los campos para publicar el vehículo.</p>
+                </div>
+                <a href="vehiculos.html" class="btn btn-outline">Cancelar</a>
+            </header>
+
+            <form id="vehicle-form" class="form-container">
+                <!-- SECCIÓN 1: INFO BÁSICA -->
+                <div class="form-section">
+                    <h3 class="section-subtitle"><i class="fa-solid fa-car"></i> Información del Vehículo</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+                        <div class="form-group">
+                            <label for="marca">Marca *</label>
+                            <select id="marca" required>
+                                <option value="" disabled selected>Selecciona una marca...</option>
+                                <option value="Abarth">Abarth</option>
+                                <option value="Alfa Romeo">Alfa Romeo</option>
+                                <option value="Audi">Audi</option>
+                                <option value="BMW">BMW</option>
+                                <option value="Citroën">Citroën</option>
+                                <option value="Cupra">Cupra</option>
+                                <option value="Dacia">Dacia</option>
+                                <option value="Fiat">Fiat</option>
+                                <option value="Ford">Ford</option>
+                                <option value="Honda">Honda</option>
+                                <option value="Hyundai">Hyundai</option>
+                                <option value="Jeep">Jeep</option>
+                                <option value="Kia">Kia</option>
+                                <option value="Land Rover">Land Rover</option>
+                                <option value="Lexus">Lexus</option>
+                                <option value="Mazda">Mazda</option>
+                                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                <option value="MINI">MINI</option>
+                                <option value="Mitsubishi">Mitsubishi</option>
+                                <option value="Nissan">Nissan</option>
+                                <option value="Opel">Opel</option>
+                                <option value="Peugeot">Peugeot</option>
+                                <option value="Porsche">Porsche</option>
+                                <option value="Renault">Renault</option>
+                                <option value="SEAT">SEAT</option>
+                                <option value="Skoda">Skoda</option>
+                                <option value="Smart">Smart</option>
+                                <option value="Subaru">Subaru</option>
+                                <option value="Suzuki">Suzuki</option>
+                                <option value="Tesla">Tesla</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Volkswagen">Volkswagen</option>
+                                <option value="Volvo">Volvo</option>
+                                <option value="Otra">Otra</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="modelo">Modelo *</label>
+                            <input type="text" id="modelo" required placeholder="Ej: A3 Sportback">
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px;">
+                        <div class="form-group">
+                            <label for="anio">Año *</label>
+                            <input type="number" id="anio" required min="1950" max="2100">
+                        </div>
+                        <div class="form-group">
+                            <label for="kilometros">Kilómetros *</label>
+                            <input type="number" id="kilometros" required min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="precio">Precio (€) *</label>
+                            <input type="number" id="precio" required min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN 2: MECÁNICA Y ETIQUETA -->
+                <div class="form-section" style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px;">
+                    <h3 class="section-subtitle"><i class="fa-solid fa-gears"></i> Especificaciones Técnicas</h3>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 15px;">
+                        <div class="form-group">
+                            <label for="combustible">Combustible</label>
+                            <select id="combustible">
+                                <option value="Gasolina">Gasolina</option>
+                                <option value="Diésel">Diésel</option>
+                                <option value="Híbrido">Híbrido</option>
+                                <option value="Eléctrico">Eléctrico</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cambio">Cambio</label>
+                            <select id="cambio">
+                                <option value="Manual">Manual</option>
+                                <option value="Automático">Automático</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="etiqueta">Etiqueta DGT</label>
+                            <select id="etiqueta">
+                                <option value="">Sin Etiqueta</option>
+                                <option value="0">Cero (Azul)</option>
+                                <option value="Eco">ECO (Verde/Azul)</option>
+                                <option value="C">C (Verde)</option>
+                                <option value="B">B (Amarillo)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 20px;">
+                        <label for="descripcion">Descripción detallada</label>
+                        <textarea id="descripcion" rows="4" placeholder="Equipamiento, estado general, garantía..."></textarea>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN 3: MULTIMEDIA Y ESTADO -->
+                <div class="form-section" style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px;">
+                    <h3 class="section-subtitle"><i class="fa-solid fa-image"></i> Multimedia y Visibilidad</h3>
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label>Fotos del vehículo</label>
+                        <div id="drop-zone" class="drop-zone" style="background: rgba(255,255,255,0.02)">
+                            <i class="fa-solid fa-cloud-arrow-up" style="font-size: 2rem; margin-bottom: 10px; color: var(--accent-color);"></i>
+                            <p>Arrastra las fotos aquí o haz clic para subir</p>
+                            <input type="file" id="file-input" multiple accept="image/*" style="display: none;">
+                        </div>
+                        <div id="photos-preview" class="image-upload-grid"></div>
+                    </div>
+
+                    <div style="display: flex; gap: 30px; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px;">
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 600;">
+                            <input type="checkbox" id="visible" checked style="width: auto;"> Publicar en la Web
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 600;">
+                            <input type="checkbox" id="destacado" style="width: auto;"> Destacar en Inicio
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 600; color: #ff4d4d;">
+                            <input type="checkbox" id="vendido" style="width: auto;"> Marcar como VENDIDO
+                        </label>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; display: flex; gap: 20px;">
+                    <button type="submit" id="submit-btn" class="btn btn-primary btn-full" style="padding: 18px; font-size: 1.1rem; font-weight: 700;">
+                        Guardar Cambios
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script type="module" src="/js/admin/upload.js"></script>
+</body>
+</html>
+

@@ -21,6 +21,7 @@ body {
 .sidebar-logo {
     font-size: 1.25rem;
     font-weight: 800;
+    letter-spacing: -1.5px;
     margin-bottom: 50px;
     display: block;
     text-align: center;
@@ -141,18 +142,76 @@ tr:last-child td { border-bottom: none; }
 .action-btn:hover { color: white; }
 .action-btn.delete:hover { color: var(--error); }
 
-/* Forms Admin */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 10px rgba(232, 112, 10, 0.15);
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(255,255,255,0.5)'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.form-group select option {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.form-group input::placeholder, 
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
 .form-container {
-    max-width: 800px;
+    max-width: 900px;
     background-color: var(--bg-card);
     padding: 40px;
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
 }
 
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
 .image-upload-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 15px;
     margin-top: 20px;
 }
@@ -160,9 +219,10 @@ tr:last-child td { border-bottom: none; }
 .upload-preview {
     aspect-ratio: 1;
     background-color: #222;
-    border-radius: 4px;
+    border-radius: 8px;
     overflow: hidden;
     position: relative;
+    border: 1px solid var(--border-color);
 }
 
 .upload-preview img {
@@ -192,15 +252,65 @@ tr:last-child td { border-bottom: none; }
     display: flex;
     justify-content: center;
     align-items: center;
+    background: url('../admin_login_background_1776162598351.png') no-repeat center center/cover;
+    position: relative;
+}
+
+.login-page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle, rgba(10, 10, 10, 0.4) 0%, rgba(0, 0, 0, 0.9) 100%);
+    z-index: 1;
 }
 
 .login-card {
     width: 100%;
-    max-width: 400px;
-    padding: 40px;
-    background-color: var(--bg-card);
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
+    max-width: 420px;
+    padding: 50px 40px;
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.login-card h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.login-card label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.login-card input:focus {
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.05);
+    outline: none;
+    box-shadow: 0 0 15px rgba(232, 112, 10, 0.2);
 }
 
 @media (max-width: 768px) {

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Sebriauto 2000</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="login-page">
+    <div class="login-card">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <a href="../index.html">
+                <img src="/img/logo.png" alt="Sebriauto 2000" style="height: 60px; filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));">
+            </a>
+            <h2 style="margin-top: 25px; color: var(--text-primary);">Gestión Interna</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 5px;">Acceso restringido a personal autorizado</p>
+        </div>
+        
+        <div id="login-error" class="status-msg error" style="margin-bottom: 25px; display: none; border-radius: 8px; border-left: 4px solid var(--error);"></div>
+
+        <form id="login-form">
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label for="email">Email Corporativo</label>
+                <input type="email" id="email" required placeholder="tu@sebriauto.es" autocomplete="email">
+            </div>
+            <div class="form-group" style="margin-bottom: 30px;">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" required placeholder="••••••••" autocomplete="current-password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" style="padding: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                Entrar al Sistema
+            </button>
+        </form>
+    </div>
+
+    <script type="module">
+        import { supabase } from '/js/supabase.js';
+
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+
+        // Check if already logged in
+        const checkSession = async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session) window.location.href = 'dashboard.html';
+        };
+        checkSession();
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const submitBtn = loginForm.querySelector('button');
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Verificando...';
+            loginError.style.display = 'none';
+
+            try {
+                const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+                if (error) {
+                    let msg = 'Error de acceso';
+                    if (error.status === 400) msg = 'Email o contraseña incorrectos. Por favor, revisa tus datos.';
+                    if (error.status === 429) msg = 'Demasiados intentos. Por favor, espera unos minutos.';
+                    
+                    loginError.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> ${msg}`;
+                    loginError.style.display = 'block';
+                    throw error;
+                }
+
+                window.location.href = 'dashboard.html';
+            } catch (err) {
+                console.error('Error durante el login:', err);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Entrar al Sistema';
+            }
+        });
+    </script>
+</body>
+</html>
+

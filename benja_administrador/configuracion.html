@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración | Sebriauto Admin</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .config-section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .config-section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .config-section h2 i {
+            color: var(--accent-color);
+        }
+        .save-bar {
+            position: sticky;
+            bottom: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+            margin-top: 20px;
+        }
+        #save-status {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        #save-status.ok { color: #2ecc71; }
+        #save-status.err { color: #e74c3c; }
+    </style>
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <span class="text-primary">SEBRI</span><span class="text-accent">AUTO</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i> <span>Dashboard</span>
+                </a>
+                <a href="vehiculos.html" class="nav-item">
+                    <i class="fa-solid fa-car"></i> <span>Vehículos</span>
+                </a>
+                <a href="configuracion.html" class="nav-item active">
+                    <i class="fa-solid fa-gear"></i> <span>Configuración</span>
+                </a>
+            </nav>
+            <button id="logout-btn" class="nav-item" style="margin-top: auto; background: transparent; cursor: pointer; border: none; width: 100%;">
+                <i class="fa-solid fa-right-from-bracket"></i> <span>Cerrar Sesión</span>
+            </button>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <div>
+                    <h1>Ajustes Generales</h1>
+                    <p style="color: var(--text-secondary);">Configura la información básica de tu negocio.</p>
+                </div>
+            </header>
+
+
+            <!-- TAB GENERAL -->
+            <div id="tab-general" class="tab-content active">
+                <form id="config-form">
+                    <!-- DATOS DE CONTACTO -->
+                    <div class="config-section">
+                        <h2><i class="fa-solid fa-address-card"></i> Datos de Contacto</h2>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group" style="grid-column: 1/-1;">
+                                <label for="direccion">Dirección</label>
+                                <input type="text" id="direccion" placeholder="Crta Villamarchante 119, 46190 Riba-Roja del Turia, Valencia">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono fijo</label>
+                                <input type="tel" id="telefono" placeholder="+34 962 779 772">
+                            </div>
+                            <div class="form-group">
+                                <label for="movil">Móvil / WhatsApp</label>
+                                <input type="tel" id="movil" placeholder="695 599 086">
+                            </div>
+                            <div class="form-group" style="grid-column: 1/-1;">
+                                <label for="email">Email de contacto</label>
+                                <input type="email" id="email" placeholder="benja@sebriauto.es">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HORARIO -->
+                    <div class="config-section">
+                        <h2><i class="fa-solid fa-clock"></i> Horario de Apertura</h2>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label for="horario_lun_jue">Lunes – Jueves</label>
+                                <input type="text" id="horario_lun_jue" placeholder="08:00 – 15:30">
+                            </div>
+                            <div class="form-group">
+                                <label for="horario_vie">Viernes</label>
+                                <input type="text" id="horario_vie" placeholder="08:00 – 14:00">
+                            </div>
+                            <div class="form-group">
+                                <label for="horario_sab">Sábado</label>
+                                <input type="text" id="horario_sab" placeholder="Cerrado">
+                            </div>
+                            <div class="form-group">
+                                <label for="horario_dom">Domingo</label>
+                                <input type="text" id="horario_dom" placeholder="Cerrado">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="config-section">
+                        <h2><i class="fa-solid fa-pen-to-square"></i> Textos Básicos</h2>
+                        <div class="form-group">
+                            <label for="slogan">Slogan (bajo el logo en el hero)</label>
+                            <input type="text" id="slogan" placeholder="Taller mecánico · Vehículos de ocasión · Riba-roja de Túria">
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion_footer">Descripción del footer</label>
+                            <textarea id="descripcion_footer" rows="3" placeholder="Tu taller de confianza en Riba-roja de Túria..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="save-bar">
+                        <span id="save-status-general" class="save-status">Se reflejarán automáticamente en la web.</span>
+                        <button type="submit" class="btn btn-primary" id="save-btn-general">
+                            <i class="fa-solid fa-floppy-disk" style="margin-right: 8px;"></i> Guardar General
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+
+        </main>
+    </div>
+
+    <script type="module" src="/js/admin/configuracion.js"></script>
+</body>
+</html>
+

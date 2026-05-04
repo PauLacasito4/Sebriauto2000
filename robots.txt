@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /benja_administrador/
+
+Sitemap: https://sebriauto2000.vercel.app/sitemap.xml

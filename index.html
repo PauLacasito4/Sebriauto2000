@@ -3,266 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Próximamente | Sebriauto 2000</title>
-    <meta name="description" content="Sebriauto 2000 - Taller mecánico y venta de vehículos en Riba-Roja del Turia. Próximamente online.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Sebriauto 2000 | Taller Mecánico y Venta de Coches en Riba-roja de Túria</title>
+    <meta name="description" content="Taller mecánico multimarca y venta de vehículos de ocasión en Riba-roja de Túria. Confianza, experiencia y profesionalidad para tu coche.">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --accent: #E8C30A;
-            --bg: #0D0D0D;
-            --card: #161616;
-            --border: #2a2a2a;
-            --text: #ffffff;
-            --muted: #888888;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Fondo animado */
-        .bg-glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.08;
-            pointer-events: none;
-            animation: drift 12s ease-in-out infinite alternate;
-        }
-        .bg-glow-1 {
-            background: #E8C30A;
-            top: -200px; left: -200px;
-        }
-        .bg-glow-2 {
-            background: #1B4F8A;
-            bottom: -200px; right: -200px;
-            animation-delay: -6s;
-        }
-
-        @keyframes drift {
-            from { transform: translate(0, 0) scale(1); }
-            to   { transform: translate(60px, 40px) scale(1.1); }
-        }
-
-        /* Contenido */
-        .wrapper {
-            text-align: center;
-            max-width: 680px;
-            padding: 40px 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Logo texto */
-        .logo {
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 48px;
-            display: block;
-        }
-        .logo .sebri { color: #fff; }
-        .logo .auto  { color: var(--accent); }
-
-        /* Icono wrench */
-        .icon-wrap {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--card);
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 32px;
-            font-size: 2rem;
-            color: var(--accent);
-            animation: spin-pause 4s ease-in-out infinite;
-        }
-
-        @keyframes spin-pause {
-            0%, 70%  { transform: rotate(0deg); }
-            85%      { transform: rotate(20deg); }
-            100%     { transform: rotate(0deg); }
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 20px;
-            letter-spacing: -1.5px;
-        }
-
-        h1 span { color: var(--accent); }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--muted);
-            margin-bottom: 48px;
-            line-height: 1.7;
-        }
-
-        /* Divisor */
-        .divider {
-            width: 60px;
-            height: 2px;
-            background: var(--accent);
-            margin: 0 auto 48px;
-            border-radius: 2px;
-        }
-
-        /* Info de contacto */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-            margin-bottom: 48px;
-        }
-
-        .contact-item {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px 16px;
-            transition: border-color 0.3s;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .contact-item:hover {
-            border-color: var(--accent);
-        }
-
-        .contact-item i {
-            font-size: 1.4rem;
-            color: var(--accent);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .contact-item .label {
-            font-size: 0.75rem;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
-        }
-
-        .contact-item .value {
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        /* Horario */
-        .hours {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px 24px;
-            margin-bottom: 40px;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .hours i {
-            font-size: 1.5rem;
-            color: var(--accent);
-            flex-shrink: 0;
-        }
-
-        .hours p {
-            font-size: 0.9rem;
-            color: var(--muted);
-            line-height: 1.7;
-        }
-
-        .hours strong { color: var(--text); }
-
-        /* Footer mini */
-        .mini-footer {
-            font-size: 0.8rem;
-            color: var(--muted);
-        }
-    </style>
 </head>
 <body>
 
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
+    <div id="navbar-placeholder"></div>
 
-    <div class="wrapper">
-
-        <span class="logo">
-            <span class="sebri">SEBRI</span><span class="auto">AUTO</span> 2000
-        </span>
-
-        <div class="icon-wrap">
-            <i class="fa-solid fa-screwdriver-wrench"></i>
+    <header class="hero">
+        <h1>SEBRI<span>AUTO</span> 2000</h1>
+        <img src="/img/logo.png" alt="Sebriauto 2000 - Logotipo oficial" class="hero-logo">
+        <p data-i18n="hero-subtitle">Taller mecánico · Vehículos de ocasión · Riba-roja de Túria</p>
+        <div class="hero-btns">
+            <a href="/pages/catalogo.html" class="btn btn-accent" data-i18n="btn-ver-vehiculos">Ver vehículos</a>
+            <a href="https://wa.me/34695599086" class="btn btn-outline" data-i18n="btn-contactar" target="_blank">Contactar</a>
         </div>
+    </header>
 
-        <h1>Estamos poniendo a punto<br><span>nuestra web</span></h1>
-
-        <p class="subtitle">
-            Nuestro sitio web está en mantenimiento.<br>
-            Mientras tanto puedes contactarnos por teléfono o WhatsApp.
-        </p>
-
-        <div class="divider"></div>
-
-        <div class="contact-grid">
-            <a href="tel:+34962779772" class="contact-item">
-                <i class="fa-solid fa-phone"></i>
-                <p class="label">Teléfono</p>
-                <p class="value">+34 962 779 772</p>
-            </a>
-            <a href="https://wa.me/34695599086" target="_blank" class="contact-item">
-                <i class="fa-brands fa-whatsapp"></i>
-                <p class="label">WhatsApp</p>
-                <p class="value">695 599 086</p>
-            </a>
-            <a href="mailto:benja@sebriauto.es" class="contact-item">
-                <i class="fa-solid fa-envelope"></i>
-                <p class="label">Email</p>
-                <p class="value">benja@sebriauto.es</p>
-            </a>
-            <a href="https://maps.google.com/?q=Crta+Villamarchante+119+Riba-Roja+del+Turia" target="_blank" class="contact-item">
-                <i class="fa-solid fa-location-dot"></i>
-                <p class="label">Dirección</p>
-                <p class="value">Crta Villamarchante 119</p>
-            </a>
+    <section class="section reveal">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="title-servicios">Nuestros Servicios</h2>
+                <p data-i18n="subtitle-servicios">Ofrecemos soluciones integrales para el mantenimiento y reparación de tu vehículo con la máxima garantía.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fa-solid fa-gears" aria-hidden="true"></i>
+                    <h3 data-i18n="srv-mecanica">Mecánica General</h3>
+                    <p data-i18n="srv-mecanica-desc">Mantenimiento preventivo y correctivo de todo tipo de motores y sistemas mecánicos.</p>
+                </div> 
+                <div class="service-card">
+                    <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+                    <h3 data-i18n="srv-diagnosis">Diagnosis Electrónica</h3>
+                    <p data-i18n="srv-diagnosis-desc">Sistemas de diagnosis avanzados para detectar cualquier fallo en la electrónica de tu coche.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-oil-can" aria-hidden="true"></i>
+                    <h3 data-i18n="srv-aceite">Cambio de Aceite</h3>
+                    <p data-i18n="srv-aceite-desc">Utilizamos lubricantes de primera calidad para prolongar la vida útil de tu motor.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-car-burst" aria-hidden="true"></i>
+                    <h3 data-i18n="srv-frenos">Frenos e ITV</h3>
+                    <p data-i18n="srv-frenos-desc">Revisión completa de sistemas de seguridad y pre-ITV para que circules sin preocupaciones.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-snowflake" aria-hidden="true"></i>
+                    <h3 data-i18n="srv-aire">Aire Acondicionado</h3>
+                    <p data-i18n="srv-aire-desc">Carga y reparación de sistemas de climatización para tu confort en la carretera.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-battery-three-quarters" aria-hidden="true"></i>
+                    <h3 data-i18n="srv-bateria">Baterías y Electricidad</h3>
+                    <p data-i18n="srv-bateria-desc">Comprobación y sustitución de baterías, alternadores y sistemas eléctricos.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="hours">
-            <i class="fa-solid fa-clock"></i>
-            <p>
-                <strong>Lunes – Jueves:</strong> 08:00 – 15:30 &nbsp;|&nbsp;
-                <strong>Viernes:</strong> 08:00 – 14:00<br>
-                Sábado y Domingo: Cerrado
-            </p>
+    <section class="section section-alt reveal">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="title-destacados">Vehículos Destacados</h2>
+                <p data-i18n="subtitle-destacados">Descubre nuestra selección de coches de ocasión totalmente revisados.</p>
+            </div>
+            <div class="featured-grid" id="featured-vehicles">
+                <p class="loading-text" data-i18n="loading">Cargando vehículos...</p>
+            </div>
+            <div class="section-cta">
+                <a href="/pages/catalogo.html" class="btn btn-outline" data-i18n="btn-ver-todo">Ver catálogo completo</a>
+            </div>
         </div>
+    </section>
 
-        <p class="mini-footer">&copy; 2026 Sebriauto 2000 · Riba-Roja del Turia, Valencia</p>
+    <section class="section reveal">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="title-porque">¿Por qué elegirnos?</h2>
+                <p data-i18n="subtitle-porque">Nuestra trayectoria y clientes satisfechos avalan nuestro trabajo diario.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-item">
+                    <i class="fa-solid fa-medal" aria-hidden="true"></i>
+                    <h3 data-i18n="why-exp">Experiencia</h3>
+                    <p data-i18n="why-exp-desc">Cuidando de los vehículos de nuestros vecinos en Riba-roja.</p>
+                </div>
+                <div class="why-item">
+                    <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+                    <h3 data-i18n="why-conf">Confianza</h3>
+                    <p data-i18n="why-conf-desc">Transparencia total en cada presupuesto y reparación. Sin sorpresas.</p>
+                </div>
+                <div class="why-item">
+                    <i class="fa-solid fa-euro-sign" aria-hidden="true"></i>
+                    <h3 data-i18n="why-price">Precio Justo</h3>
+                    <p data-i18n="why-price-desc">Calidad profesional a precios competitivos. La mejor relación calidad-precio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </div>
 
+
+    <div id="footer-placeholder"></div>
+
+
+    <script type="module" src="/js/components.js"></script>
+    <script type="module">
+        import { supabase } from '/js/supabase.js';
+
+        async function loadFeatured() {
+            const container = document.getElementById('featured-vehicles');
+            try {
+                const { data, error } = await supabase
+                    .from('vehiculos')
+                    .select('*')
+                    .eq('visible', true)
+                    .eq('destacado', true)
+                    .eq('vendido', false)
+                    .order('creado_en', { ascending: false })
+                    .limit(3);
+
+                if (error) throw error;
+
+                if (data.length === 0) {
+                    container.innerHTML = '<p class="loading-text">No hay vehículos destacados en este momento.</p>';
+                    return;
+                }
+
+                container.innerHTML = data.map(v => {
+                    const mainPhoto = v.fotos && v.fotos.length > 0
+                        ? v.fotos[0]
+                        : 'img/no-image.svg';
+                    return `
+                        <article class="vehicle-card">
+                            <div class="vehicle-img">
+                                <img src="${mainPhoto}" alt="${v.marca} ${v.modelo}">
+                            </div>
+                            <div class="vehicle-info">
+                                <div class="vehicle-price">${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v.precio)}</div>
+                                <h3 class="vehicle-title">${v.marca} ${v.modelo}</h3>
+                                <div class="vehicle-specs">
+                                    <span><i class="fa-solid fa-calendar"></i> ${v.anio}</span>
+                                    <span><i class="fa-solid fa-gauge"></i> ${v.kilometros.toLocaleString()} km</span>
+                                    <span><i class="fa-solid fa-gas-pump"></i> ${v.combustible}</span>
+                                </div>
+                                <a href="/pages/vehiculo?id=${v.id}" class="btn btn-outline btn-full">Ver detalles</a>
+                            </div>
+                        </article>
+                    `;
+                }).join('');
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = '<p class="loading-text error-text">Error al cargar los vehículos.</p>';
+            }
+        }
+
+        loadFeatured();
+    </script>
 </body>
 </html>
+

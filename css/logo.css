@@ -1,0 +1,51 @@
+/* logo.css — Estilos del logo */
+
+/* Texto de la navbar */
+.logo-sebri {
+    color: #ffffff;
+}
+
+.logo-auto {
+    color: #ffffff;
+    margin-left: 2px;
+}
+
+/* Logo imagen (hero y footer) */
+.logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+@media (max-width: 600px) {
+    .logo-img {
+        height: 32px;
+    }
+}
+
+.logo-img:hover {
+    opacity: 0.85;
+}
+
+/* Logo grande en el hero */
+.hero-logo {
+    width: 180px;
+    max-width: 80vw;
+    height: auto;
+    margin: 0 auto 30px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+}
+
+@media (max-width: 600px) {
+    .hero-logo {
+        width: 140px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Footer logo */
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 25px;
+}
