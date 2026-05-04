@@ -62,44 +62,83 @@
 .whatsapp-card, .security-card {
     background-color: var(--bg-card);
     padding: 40px;
-    border-radius: var(--border-radius);
+    border-radius: 16px;
     border: 1px solid var(--border-color);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
 
-.whatsapp-card:hover { border-color: #25D366; }
+.whatsapp-card {
+    border: 1px solid rgba(37, 211, 102, 0.1);
+}
 
-.whatsapp-card i.fa-whatsapp {
-    font-size: 3.5rem;
+.whatsapp-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(37, 211, 102, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.whatsapp-card:hover { 
+    border-color: rgba(37, 211, 102, 0.4); 
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.08);
+    transform: translateY(-5px);
+}
+
+.whatsapp-card > i.fa-whatsapp {
+    font-size: 2.5rem;
     color: #25D366;
-    margin-bottom: 25px;
-    display: block;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    background: rgba(37, 211, 102, 0.1);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.2);
 }
 
 .whatsapp-card h3 {
     font-size: 1.8rem;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    font-weight: 700;
 }
 
 .whatsapp-card p {
     color: var(--text-secondary);
     margin-bottom: 30px;
     font-size: 1.05rem;
+    line-height: 1.6;
 }
 
 .btn-whatsapp {
-    background-color: #25D366;
+    background: linear-gradient(135deg, #25D366, #1ebe57);
     color: white;
     width: 100%;
     gap: 12px;
-    font-size: 1.1rem;
-    padding: 18px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-whatsapp i {
+    font-size: 1.3rem;
 }
 
 .btn-whatsapp:hover {
-    background-color: #1ebe57;
+    background: linear-gradient(135deg, #1ebe57, #189b47);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.35);
 }
 
 .security-card {
