@@ -54,6 +54,9 @@
             <div class="sidebar-logo">
                 <span class="text-primary">SEBRI</span><span class="text-accent">AUTO</span>
             </div>
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <nav class="nav-menu">
                 <a href="dashboard.html" class="nav-item">
                     <i class="fa-solid fa-chart-line"></i> <span>Dashboard</span>
@@ -85,7 +88,7 @@
                     <!-- DATOS DE CONTACTO -->
                     <div class="config-section">
                         <h2><i class="fa-solid fa-address-card"></i> Datos de Contacto</h2>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="responsive-grid-2">
                             <div class="form-group" style="grid-column: 1/-1;">
                                 <label for="direccion">Dirección</label>
                                 <input type="text" id="direccion" placeholder="Crta Villamarchante 119, 46190 Riba-Roja del Turia, Valencia">
@@ -108,7 +111,7 @@
                     <!-- HORARIO -->
                     <div class="config-section">
                         <h2><i class="fa-solid fa-clock"></i> Horario de Apertura</h2>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="responsive-grid-2">
                             <div class="form-group">
                                 <label for="horario_lun_jue">Lunes – Jueves</label>
                                 <input type="text" id="horario_lun_jue" placeholder="08:00 – 15:30">
@@ -154,6 +157,11 @@
     </div>
 
     <script type="module" src="/js/admin/configuracion.js"></script>
+    <script>
+        document.getElementById('sidebar-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
 
