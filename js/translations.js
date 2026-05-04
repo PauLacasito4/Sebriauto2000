@@ -120,7 +120,8 @@ export const translations = {
         // --- POLÍTICA DE COOKIES Y ERRORES ---
         "cookie-title": "¿Aceptar cookies?",
         "cookie-text": "Utilizamos cookies propias para mejorar tu experiencia de navegación y seguridad en nuestra web.",
-        "cookie-accept": "Aceptar",
+        "cookie-accept": "Aceptar todas",
+        "cookie-necessary": "Solo necesarias",
         "cookie-info": "Más información",
         "error-title": "¡Vaya! Parece que te has perdido",
         "error-text": "La página que buscas no existe o ha sido movida. Puedes volver al inicio o contactar con nosotros si necesitas ayuda."
@@ -241,7 +242,8 @@ export const translations = {
         // --- COOKIES I ERRORS ---
         "cookie-title": "¿Acceptar cookies?",
         "cookie-text": "Utilitzem cookies pròpies per a millorar la teua experiència de navegació i seguretat en la nostra web.",
-        "cookie-accept": "Acceptar",
+        "cookie-accept": "Acceptar totes",
+        "cookie-necessary": "Només necessàries",
         "cookie-info": "Més informació",
         "error-title": "Vaja! Pareix que t'has perdut",
         "error-text": "La pàgina que busques no existix o ha sigut moguda. Pots tornar a l'inici o contactar amb nosaltres si necesites ajuda."

@@ -108,8 +108,9 @@ function handleCookies() {
             <div class="cookie-content">
                 <h4 data-i18n="cookie-title">¿Aceptar cookies?</h4>
                 <p data-i18n="cookie-text">Utilizamos cookies propias para mejorar tu experiencia de navegación y seguridad.</p>
-                <div class="cookie-btns">
-                    <button id="accept-cookies" class="btn btn-primary" data-i18n="cookie-accept">Aceptar</button>
+                <div class="cookie-btns" style="flex-wrap: wrap;">
+                    <button id="accept-cookies" class="btn btn-primary" data-i18n="cookie-accept">Aceptar todas</button>
+                    <button id="accept-necessary-cookies" class="btn btn-primary" style="background-color: #333;" data-i18n="cookie-necessary">Solo necesarias</button>
                     <a href="politica-cookies.html" class="btn btn-outline" data-i18n="cookie-info">Más info</a>
                 </div>
             </div>
@@ -121,10 +122,19 @@ function handleCookies() {
 
         setTimeout(() => banner.classList.add('active'), 500);
 
-        document.getElementById('accept-cookies').addEventListener('click', () => {
-            localStorage.setItem('cookie-consent', 'true');
+        const hideBanner = () => {
             banner.classList.remove('active');
             setTimeout(() => banner.remove(), 600);
+        };
+
+        document.getElementById('accept-cookies').addEventListener('click', () => {
+            localStorage.setItem('cookie-consent', 'all');
+            hideBanner();
+        });
+
+        document.getElementById('accept-necessary-cookies').addEventListener('click', () => {
+            localStorage.setItem('cookie-consent', 'necessary');
+            hideBanner();
         });
     }
 }
