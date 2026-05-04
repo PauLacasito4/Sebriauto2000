@@ -14,6 +14,9 @@
             <div class="sidebar-logo">
                 <span class="text-primary">SEBRI</span><span class="text-accent">AUTO</span>
             </div>
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <nav class="nav-menu">
                 <a href="dashboard.html" class="nav-item active">
                     <i class="fa-solid fa-chart-line"></i> <span>Dashboard</span>
@@ -43,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="admin-grid" style="display: grid; grid-template-columns: 1fr; gap: 30px;">
+            <div class="admin-grid">
                 <div class="table-container">
                     <div style="padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
                         <h3 style="margin: 0;">Últimos Vehículos Añadidos</h3>
@@ -108,8 +111,17 @@
             `).join('') || '<tr><td colspan="3">No hay datos</td></tr>';
         }
 
-        init();
-    </script>
+            init();
+
+            // Mobile Sidebar Toggle
+            const toggle = document.getElementById('sidebar-toggle');
+            const menu = document.querySelector('.nav-menu');
+            if (toggle && menu) {
+                toggle.addEventListener('click', () => {
+                    menu.classList.toggle('active');
+                });
+            }
+        </script>
 </body>
 </html>
 

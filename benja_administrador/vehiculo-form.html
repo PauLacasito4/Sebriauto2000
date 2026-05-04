@@ -28,6 +28,9 @@
             <div class="sidebar-logo">
                 <span class="text-primary">SEBRI</span><span class="text-accent">AUTO</span>
             </div>
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <nav class="nav-menu">
                 <a href="dashboard.html" class="nav-item">
                     <i class="fa-solid fa-chart-line"></i> <span>Dashboard</span>
@@ -57,7 +60,7 @@
                 <!-- SECCIÓN 1: INFO BÁSICA -->
                 <div class="form-section">
                     <h3 class="section-subtitle"><i class="fa-solid fa-car"></i> Información del Vehículo</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+                    <div class="responsive-grid-2" style="margin-top: 15px;">
                         <div class="form-group">
                             <label for="marca">Marca *</label>
                             <select id="marca" required>
@@ -104,7 +107,7 @@
                         </div>
                     </div>
 
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px;">
+                    <div class="responsive-grid-3" style="margin-top: 20px;">
                         <div class="form-group">
                             <label for="anio">Año *</label>
                             <input type="number" id="anio" required min="1950" max="2100">
@@ -123,7 +126,7 @@
                 <!-- SECCIÓN 2: MECÁNICA Y ETIQUETA -->
                 <div class="form-section" style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px;">
                     <h3 class="section-subtitle"><i class="fa-solid fa-gears"></i> Especificaciones Técnicas</h3>
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 15px;">
+                    <div class="responsive-grid-3" style="margin-top: 15px;">
                         <div class="form-group">
                             <label for="combustible">Combustible</label>
                             <select id="combustible">
@@ -170,7 +173,7 @@
                         <div id="photos-preview" class="image-upload-grid"></div>
                     </div>
 
-                    <div style="display: flex; gap: 30px; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px;">
+                    <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px;">
                         <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 600;">
                             <input type="checkbox" id="visible" checked style="width: auto;"> Publicar en la Web
                         </label>
@@ -193,6 +196,11 @@
     </div>
 
     <script type="module" src="/js/admin/upload.js"></script>
+    <script>
+        document.getElementById('sidebar-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
 

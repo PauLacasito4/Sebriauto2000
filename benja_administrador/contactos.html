@@ -35,6 +35,9 @@
             <div class="sidebar-logo">
                 <span class="text-primary">SEBRI</span><span class="text-accent">AUTO</span>
             </div>
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <nav class="nav-menu">
                 <a href="dashboard.html" class="nav-item">
                     <i class="fa-solid fa-chart-line"></i> <span>Dashboard</span>
@@ -109,6 +112,11 @@
     </div>
 
     <script type="module" src="/js/admin/contactos.js"></script>
+    <script>
+        document.getElementById('sidebar-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
 
