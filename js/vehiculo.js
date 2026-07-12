@@ -26,13 +26,25 @@ async function fetchVehicleDetail() {
         return;
     }
 
-    renderDetail(data);
+    let whatsappNum = '34695599086'; // fallback por defecto
+    try {
+        const { data: configData } = await supabase.from('configuracion').select('movil').eq('id', 1).single();
+        if (configData && configData.movil) {
+            let cleanNum = configData.movil.replace(/\D/g, '');
+            if (cleanNum.length === 9) cleanNum = '34' + cleanNum;
+            whatsappNum = cleanNum;
+        }
+    } catch (e) {
+        console.warn(e);
+    }
+
+    renderDetail(data, whatsappNum);
 }
 
 /**
  * Renderiza la ficha técnica detallada y la galería de imágenes.
  */
-function renderDetail(v) {
+function renderDetail(v, whatsappNum) {
     const precioFormateado = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v.precio);
     const fotos = v.fotos && v.fotos.length > 0 ? v.fotos : ['/img/no-image.svg'];
     
@@ -41,7 +53,7 @@ function renderDetail(v) {
 
     // Preparación del mensaje de contacto para WhatsApp
     const mensajeWA = encodeURIComponent(`Hola, me interesa el ${v.marca} ${v.modelo} (${v.anio}). ¿Sigue disponible?`);
-    const enlaceWA = `https://wa.me/34695599086?text=${mensajeWA}`;
+    const enlaceWA = `https://wa.me/${whatsappNum}?text=${mensajeWA}`;
 
     detailContainer.innerHTML = `
         <!-- COLUMNA IZQUIERDA: Galería Multimedia -->

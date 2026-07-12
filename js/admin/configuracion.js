@@ -56,8 +56,8 @@ async function saveGeneral(e) {
         if (el) payload[field] = el.value;
     });
 
-    // Realización del UPSERT (Insert o Update) en la tabla 'configuracion'
-    const { error } = await supabase.from('configuracion').upsert(payload, { onConflict: 'id' });
+    // Realización del UPDATE en la tabla 'configuracion' (el registro id: 1 ya existe)
+    const { error } = await supabase.from('configuracion').update(payload).eq('id', 1);
     
     // Notificación visual del resultado de la operación
     setStatus(statusGeneral, error ? 'Error: ' + error.message : '✓ Cambios guardados correctamente', error ? 'err' : 'ok');

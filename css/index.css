@@ -263,9 +263,17 @@
 
 /* Logo hero */
 .hero-logo {
-    width: 90px;
-    margin: 0 auto 15px;
-    opacity: 0.85;
+    width: 180px;
+    max-width: 80vw;
+    margin: 0 auto 30px;
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .hero-logo {
+        width: 140px;
+        margin-bottom: 20px;
+    }
 }
 
 @media (max-width: 900px) {

@@ -19,6 +19,7 @@ let traduccionesMezcladas = { es: { ...localTranslations.es }, va: { ...localTra
  */
 export async function initI18n() {
     try {
+        // Cargar traducciones personalizadas
         const { data, error } = await supabase.from('traducciones').select('*');
         if (!error && data) {
             data.forEach(item => {
@@ -26,8 +27,69 @@ export async function initI18n() {
                 if (item.va) traduccionesMezcladas.va[item.clave] = item.va;
             });
         }
+        
+        // Cargar datos de configuración global y mapear a claves de traducción
+        const { data: configData, error: configError } = await supabase.from('configuracion').select('*').eq('id', 1).single();
+        if (!configError && configData) {
+            const applyConfig = (lang, labelMap) => {
+                if (configData.direccion) {
+                    traduccionesMezcladas[lang]['val-direccion'] = configData.direccion;
+                }
+                if (configData.telefono) {
+                    traduccionesMezcladas[lang]['val-telefono'] = configData.telefono;
+                }
+                if (configData.movil) {
+                    traduccionesMezcladas[lang]['val-movil'] = configData.movil;
+                }
+                if (configData.email) {
+                    traduccionesMezcladas[lang]['val-email'] = configData.email;
+                }
+                
+                if (configData.horario_lun_jue) {
+                    traduccionesMezcladas[lang]['cont-hor-1'] = `${labelMap.lun_jue}: ${configData.horario_lun_jue}`;
+                    traduccionesMezcladas[lang]['footer-h1'] = `${labelMap.lun_jue}: ${configData.horario_lun_jue}`;
+                }
+                if (configData.horario_vie) {
+                    traduccionesMezcladas[lang]['cont-hor-2'] = `${labelMap.vie}: ${configData.horario_vie}`;
+                    traduccionesMezcladas[lang]['footer-h2'] = `${labelMap.vie}: ${configData.horario_vie}`;
+                }
+                
+                const sabText = configData.horario_sab || 'Cerrado';
+                const domText = configData.horario_dom || 'Cerrado';
+                if (sabText === 'Cerrado' && domText === 'Cerrado') {
+                    traduccionesMezcladas[lang]['footer-h3'] = `${labelMap.sab_dom_cerrado}`;
+                } else if (sabText === 'Tancat' && domText === 'Tancat') {
+                    traduccionesMezcladas[lang]['footer-h3'] = `${labelMap.sab_dom_cerrado}`;
+                } else {
+                    traduccionesMezcladas[lang]['footer-h3'] = `${labelMap.sab}: ${sabText} | ${labelMap.dom}: ${domText}`;
+                }
+
+                if (configData.slogan) {
+                    traduccionesMezcladas[lang]['hero-subtitle'] = configData.slogan;
+                }
+                if (configData.descripcion_footer) {
+                    traduccionesMezcladas[lang]['footer-desc'] = configData.descripcion_footer;
+                }
+            };
+
+            applyConfig('es', {
+                lun_jue: 'Lunes – Jueves',
+                vie: 'Viernes',
+                sab: 'Sábado',
+                dom: 'Domingo',
+                sab_dom_cerrado: 'Sábado y Domingo: Cerrado'
+            });
+
+            applyConfig('va', {
+                lun_jue: 'Dilluns – Dijous',
+                vie: 'Divendres',
+                sab: 'Dissabte',
+                dom: 'Diumenge',
+                sab_dom_cerrado: 'Dissabte i Diumenge: Tancat'
+            });
+        }
     } catch (e) {
-        console.warn('Conexión con Supabase lenta o fallida. Usando diccionario local de emergencia.');
+        console.warn('Conexión con Supabase lenta o fallida. Usando diccionario local de emergencia.', e);
     }
     
     document.documentElement.lang = idiomActual;
@@ -47,7 +109,7 @@ export function setLanguage(lang) {
 }
 
 /**
- * Escanea y traduce todos los elementos que contengan el atributo [data-i18n].
+ * Escanea y traduce todos los elementos que contengan el atributo [data-i18n] y [data-i18n-href].
  */
 export function applyTranslations(container = document) {
     observador.disconnect();
@@ -64,6 +126,27 @@ export function applyTranslations(container = document) {
             } else {
                 // Si es un elemento de texto, traducimos su contenido
                 el.textContent = translation;
+            }
+        }
+    });
+
+    // Actualizar atributos href dinámicamente
+    const elementsHref = container.querySelectorAll('[data-i18n-href]');
+    elementsHref.forEach(el => {
+        const key = el.getAttribute('data-i18n-href');
+        const translation = getTranslation(key);
+        if (translation) {
+            let cleanNum = translation.replace(/\D/g, '');
+            if (cleanNum.length === 9 && !translation.startsWith('+')) {
+                cleanNum = '34' + cleanNum;
+            }
+            
+            if (key.includes('email')) {
+                el.href = 'mailto:' + translation.trim();
+            } else if (key.includes('telefono') && !key.includes('ventas') && !key.includes('movil')) {
+                el.href = 'tel:' + cleanNum;
+            } else if (key.includes('movil') || key.includes('whatsapp') || key.includes('ventas')) {
+                el.href = 'https://wa.me/' + cleanNum;
             }
         }
     });
