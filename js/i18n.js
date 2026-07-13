@@ -39,10 +39,14 @@ export async function initI18n() {
                     traduccionesMezcladas[lang]['val-telefono'] = configData.telefono;
                 }
                 if (configData.movil) {
-                    traduccionesMezcladas[lang]['val-movil'] = configData.movil;
+                    const parts = configData.movil.split('|');
+                    traduccionesMezcladas[lang]['val-movil'] = parts[0] ? parts[0].trim() : '';
+                    traduccionesMezcladas[lang]['val-telefono-ventas'] = parts[1] ? parts[1].trim() : '672 099 514';
                 }
                 if (configData.email) {
-                    traduccionesMezcladas[lang]['val-email'] = configData.email;
+                    const parts = configData.email.split('|');
+                    traduccionesMezcladas[lang]['val-email'] = parts[0] ? parts[0].trim() : '';
+                    traduccionesMezcladas[lang]['val-email-ventas'] = parts[1] ? parts[1].trim() : 'ventas@sebriauto.es';
                 }
                 
                 if (configData.horario_lun_jue) {

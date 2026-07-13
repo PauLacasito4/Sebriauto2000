@@ -26,13 +26,18 @@ async function fetchVehicleDetail() {
         return;
     }
 
-    let whatsappNum = '34695599086'; // fallback por defecto
+    let whatsappNum = '34672099514'; // fallback por defecto es el de ventas
     try {
         const { data: configData } = await supabase.from('configuracion').select('movil').eq('id', 1).single();
         if (configData && configData.movil) {
-            let cleanNum = configData.movil.replace(/\D/g, '');
-            if (cleanNum.length === 9) cleanNum = '34' + cleanNum;
-            whatsappNum = cleanNum;
+            const parts = configData.movil.split('|');
+            // Usamos el móvil de ventas (segunda parte) si existe, si no, el del taller (primera parte)
+            const salesNum = parts[1] ? parts[1].trim() : parts[0].trim();
+            if (salesNum) {
+                let cleanNum = salesNum.replace(/\D/g, '');
+                if (cleanNum.length === 9) cleanNum = '34' + cleanNum;
+                whatsappNum = cleanNum;
+            }
         }
     } catch (e) {
         console.warn(e);

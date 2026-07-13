@@ -37,7 +37,21 @@ async function loadGeneralConfig() {
     if (data) {
         FIELDS.forEach(field => {
             const el = document.getElementById(field);
-            if (el && data[field] !== null) el.value = data[field];
+            if (el && data[field] !== null) {
+                if (field === 'movil') {
+                    const parts = data[field].split('|');
+                    el.value = parts[0] ? parts[0].trim() : '';
+                    const salesEl = document.getElementById('movil_ventas');
+                    if (salesEl) salesEl.value = parts[1] ? parts[1].trim() : '672 099 514';
+                } else if (field === 'email') {
+                    const parts = data[field].split('|');
+                    el.value = parts[0] ? parts[0].trim() : '';
+                    const salesEl = document.getElementById('email_ventas');
+                    if (salesEl) salesEl.value = parts[1] ? parts[1].trim() : 'ventas@sebriauto.es';
+                } else {
+                    el.value = data[field];
+                }
+            }
         });
     }
 }
@@ -52,8 +66,18 @@ async function saveGeneral(e) {
 
     const payload = { id: 1 };
     FIELDS.forEach(field => {
-        const el = document.getElementById(field);
-        if (el) payload[field] = el.value;
+        if (field === 'movil') {
+            const tallerVal = document.getElementById('movil').value.trim();
+            const ventasVal = document.getElementById('movil_ventas').value.trim() || '672 099 514';
+            payload[field] = `${tallerVal} | ${ventasVal}`;
+        } else if (field === 'email') {
+            const tallerVal = document.getElementById('email').value.trim();
+            const ventasVal = document.getElementById('email_ventas').value.trim() || 'ventas@sebriauto.es';
+            payload[field] = `${tallerVal} | ${ventasVal}`;
+        } else {
+            const el = document.getElementById(field);
+            if (el) payload[field] = el.value;
+        }
     });
 
     // Realización del UPDATE en la tabla 'configuracion' (el registro id: 1 ya existe)
