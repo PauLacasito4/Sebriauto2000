@@ -31,8 +31,8 @@ async function fetchVehicleDetail() {
         const { data: configData } = await supabase.from('configuracion').select('movil').eq('id', 1).single();
         if (configData && configData.movil) {
             const parts = configData.movil.split('|');
-            // Usamos el móvil de ventas (segunda parte) si existe, si no, el del taller (primera parte)
-            const salesNum = parts[1] ? parts[1].trim() : parts[0].trim();
+            // Usamos el móvil de ventas (segunda parte) si existe, si no, por defecto el de ventas
+            const salesNum = parts[1] ? parts[1].trim() : '672 099 514';
             if (salesNum) {
                 let cleanNum = salesNum.replace(/\D/g, '');
                 if (cleanNum.length === 9) cleanNum = '34' + cleanNum;
